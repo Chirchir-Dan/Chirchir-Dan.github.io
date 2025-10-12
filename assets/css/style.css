@@ -1,4 +1,6 @@
-/* Global Styles */
+/* ────────────────────────────────
+   GLOBAL STYLES
+──────────────────────────────── */
 body {
   font-family: Arial, sans-serif;
   max-width: 900px;
@@ -9,68 +11,166 @@ body {
   color: #222;
 }
 
-/* Header */
+/* ────────────────────────────────
+   HEADER
+──────────────────────────────── */
 header {
   text-align: center;
   background-color: #333;
   color: white;
-  padding: 20px;
+  padding: 30px 20px;
+  border-radius: 0 0 10px 10px;
+}
+
+header h1 {
+  margin-bottom: 0.3em;
+  letter-spacing: 1px;
+}
+
+header .tagline {
+  font-size: 1.1em;
+  color: #dcdcdc;
+}
+
+header .location {
+  font-size: 0.9em;
+  color: #ccc;
+  margin-bottom: 10px;
 }
 
 header img {
   width: 150px;
   border-radius: 50%;
   margin-top: 10px;
+  border: 3px solid #0a66c2;
 }
 
-/* Footer */
-footer {
+/* ────────────────────────────────
+   NAVIGATION
+──────────────────────────────── */
+nav {
   text-align: center;
-  padding: 10px;
-  background-color: #333;
+  background-color: #0a66c2;
+  padding: 10px 0;
+  margin-top: -5px;
+  border-radius: 0 0 8px 8px;
+}
+
+nav a {
   color: white;
-}
-
-/* Headings */
-h2 {
-  color: #0a66c2;
-}
-
-/* Lists */
-ul li {
-  margin-bottom: 10px;
-}
-
-/* Links */
-a {
-  color: #0a66c2;
+  margin: 0 12px;
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
 }
 
-a:hover {
+nav a:hover {
+  color: #e0e0e0;
   text-decoration: underline;
 }
 
-/* Sections */
+/* ────────────────────────────────
+   SECTIONS
+──────────────────────────────── */
 section {
-  margin: 20px 0;
-  padding: 20px;
+  margin: 25px 0;
+  padding: 20px 25px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  header img {
-    width: 100px;
-  }
+section h2 {
+  color: #0a66c2;
+  margin-top: 0;
+}
 
+/* Lists inside sections */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Learning section emphasis */
+#learning p {
+  font-style: italic;
+}
+
+/* Education small note */
+.education {
+  font-size: 0.95em;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* ────────────────────────────────
+   LINKS
+──────────────────────────────── */
+a {
+  color: #0a66c2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #084c93;
+}
+
+/* ────────────────────────────────
+   CONTACT SECTION
+──────────────────────────────── */
+#contact p {
+  margin: 6px 0;
+  font-size: 1em;
+}
+
+#contact a {
+  font-weight: bold;
+}
+
+/* ────────────────────────────────
+   FOOTER
+──────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  border-radius: 8px 8px 0 0;
+  margin-top: 40px;
+}
+
+/* ────────────────────────────────
+   RESPONSIVE DESIGN
+──────────────────────────────── */
+@media (max-width: 600px) {
   body {
     padding: 10px;
   }
 
+  header {
+    padding: 20px 10px;
+  }
+
+  header img {
+    width: 100px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px;
+  }
+
   section {
     padding: 15px;
+  }
+
+  footer {
+    font-size: 0.9em;
   }
 }
