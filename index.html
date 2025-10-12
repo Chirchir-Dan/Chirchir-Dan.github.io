@@ -2,42 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="assets/images/favicon1.PNG" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniel Kipkosgei | software developer</title>
+  <meta name="description" content="Daniel Kipkosgei — Software Developer (Python, Flask, Go). Portfolio: projects, skills, and contact." />
+  <title>Daniel Kipkosgei | Software Developer</title>
+
+  <!-- favicon (keeps your existing path) -->
+  <link rel="icon" href="assets/images/favicon1.PNG" type="image/x-icon">
+
+  <!-- main stylesheet (unchanged) -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <header>
     <div class="profile">
       <h1>DANIEL KIPKOSGEI</h1>
-      <p>Software developer | Python, Flask, JavaScript, C, Java, Go</p>
-      <img src="assets/images/bewerbungsfoto.jpg" alt="Daniel Kipkosgei" />
+      <p class="tagline">Software developer | Python • Flask • JavaScript • C • Java • Go</p>
+      <p class="location">Based in Mannheim, Germany · +49 157 5718 3472</p>
+      <img src="assets/images/bewerbungsfoto.jpg" alt="Portrait of Daniel Kipkosgei" />
     </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I'm a passionate software developer learning React, Java.</p>
-  </section>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#learning">Learning</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section id="projects">
-    <h2>Projects</h2>
+  <!-- Skills (keeps your original list) -->
+  <section id="skills">
+    <h2>Skills</h2>
     <ul>
-      <li>Lost & Found Tracker - Flask app for reporting lost items</li>
-      <li>Tea Farm Manager - Tracks production and profit for farmers</li>
-      <li>Task Manager API - REST API to manage tasks</li>
+      <li>Python (Flask, Flask-SQLAlchemy)</li>
+      <li>JavaScript (Node.js, React basics)</li>
+      <li>Go (Golang) — training & small projects</li>
+      <li>Git & GitHub</li>
+      <li>Linux / Ubuntu, SSH, Docker basics</li>
+      <li>API Design & Debugging, RESTful services</li>
     </ul>
   </section>
 
+  <!-- About (expanded slightly using CV info) -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate software developer with a BSc in Mathematics & Computer Science.
+      I have practical experience from ALX projects and QA work, and I focus on building
+      reliable backend systems and clear APIs. I enjoy solving problems, working in teams,
+      and learning new backend technologies like Go and Spring Boot.
+    </p>
+    <p class="education">
+      Education: BSc Mathematics & Computer Science — Multimedia University of Kenya.
+    </p>
+  </section>
+
+  <!-- Projects (keeps your original entries, added note to link when ready) -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Lost & Found Tracker</strong> — Flask app for reporting lost items (image uploads). <em>(link to repo)</em></li>
+      <li><strong>Tea Farm Manager</strong> — Tracks production, labour costs and profit (Flask, SQL). <em>(link to repo)</em></li>
+      <li><strong>Task Manager API</strong> — REST API with authentication to manage tasks. <em>(link to repo)</em></li>
+      <li><strong>Portfolio Website</strong> — This site, hosted on GitHub Pages.</li>
+    </ul>
+  </section>
+
+  <!-- Learning / Journey -->
+  <section id="learning">
+    <h2>Learning Journey</h2>
+    <p>
+      Recent & ongoing: Go (Zone01 bootcamp), practical projects at ALX, and self-study of Java & Spring Boot.
+      Also improving German (B1) and working toward stronger full-stack skills (React + backend integration).
+    </p>
+  </section>
+
+  <!-- Contact (expanded: LinkedIn, X/Twitter; keep email and GitHub) -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:daniel1kipkosgei@gmail.com">daniel1kipkosgei@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/Chirchir-Dan" target="_blank">Chirchir-Dan</a></p>
+    <p>📧 <a href="mailto:daniel1kipkosgei@gmail.com">daniel1kipkosgei@gmail.com</a></p>
+    <p>📞 +49 157 5718 3472</p>
+    <p>💼 <a href="https://github.com/Chirchir-Dan" target="_blank" rel="noopener">GitHub: Chirchir-Dan</a></p>
+    <p>🔗 <a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" target="_blank" rel="noopener">LinkedIn</a></p>
+    <p>🐦 <a href="https://x.com/Dan_Chirchirs" target="_blank" rel="noopener">X / Twitter</a></p>
   </section>
 
   <footer>
     <p>© 2025 Daniel Kipkosgei</p>
   </footer>
+
+  <!-- small script for smooth scrolling (optional; remove if you don't want JS) -->
+  <script>
+    document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href');
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
