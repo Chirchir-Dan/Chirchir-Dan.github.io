@@ -4,25 +4,29 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="description"
-	content="Daniel Kipkosgei — Backend Developer with QA experience (API testing).">
+	content="Daniel Kipkosgei — Backend Developer with QA experience \
+(API testing). Python/Flask, SQL, React basics, Go, Java.">
 	<title>Daniel Kipkosgei | Backend & QA</title>
 
 	<link rel="icon" href="assets/images/favicon1.PNG" type="image/x-icon">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<header class="top" id="top">
+	<header class="header" id="top">
 		<div class="wrap">
-			<div class="profile">
-				<div class="profile__copy">
+			<div class="hero">
+				<div class="hero__copy">
+					<p class="kicker">Backend • APIs • QA mindset</p>
 					<h1>DANIEL KIPKOSGEI</h1>
-					<p class="tagline">Backend Developer · QA (API testing)</p>
-					<p class="location">Based in Mannheim, Germany</p>
+					<p class="tagline">
+						Backend Developer · QA (API testing) · Python/Flask
+					</p>
 
 					<p class="summary">
-						I build backend web apps with Python and SQL. I also have
-						QA experience, so I care about clear bug reports,
-						reproducible steps, and testing changes.
+						I build backend web apps with Python and SQL, and I enjoy
+						testing and debugging systems until they’re stable and
+						predictable. I’m also building small React UIs to consume
+						my APIs.
 					</p>
 
 					<div class="cta">
@@ -32,29 +36,47 @@
 					</div>
 
 					<p class="meta">
+						Based in Mannheim, Germany ·
 						<a href="mailto:daniel1kipkosgei@gmail.com">
 							daniel1kipkosgei@gmail.com
 						</a>
-						<span class="dot" aria-hidden="true">•</span>
+					</p>
+
+					<p class="links">
 						<a href="https://github.com/Chirchir-Dan"
 						target="_blank" rel="noopener">
 							GitHub
 						</a>
-						<span class="dot" aria-hidden="true">•</span>
+						<span aria-hidden="true">·</span>
 						<a href="https://www.linkedin.com/in/\
 daniel-kipkosgei-2ab84117b/"
 						target="_blank" rel="noopener">
 							LinkedIn
 						</a>
+						<span aria-hidden="true">·</span>
+						<a href="https://medium.com/@dkipkosgei.daniel"
+						target="_blank" rel="noopener">
+							Blog
+						</a>
 					</p>
 				</div>
 
-				<img class="photo"
-				src="assets/images/bewerbungsfoto.jpg"
-				alt="Portrait of Daniel Kipkosgei">
+				<div class="hero__card">
+					<img class="photo"
+					src="assets/images/bewerbungsfoto.jpg"
+					alt="Portrait of Daniel Kipkosgei">
+
+					<ul class="mini">
+						<li>Python (Flask), SQL (MySQL/PostgreSQL)</li>
+						<li>QA: test cases, bug reports, API testing</li>
+						<li>React basics (UI + API integration)</li>
+						<li>Go and Java (active practice)</li>
+						<li>Linux/SSH, Git/GitHub, Docker basics</li>
+					</ul>
+				</div>
 			</div>
 
-			<nav class="nav">
+			<nav class="nav" aria-label="Primary navigation">
 				<a href="#about">About</a>
 				<a href="#projects">Projects</a>
 				<a href="#skills">Skills</a>
@@ -66,20 +88,12 @@ daniel-kipkosgei-2ab84117b/"
 
 	<main class="wrap">
 		<section id="about" class="sec">
-			<h2>About Me</h2>
+			<h2>About</h2>
 			<p>
-				I’m Daniel, a backend-focused developer. I like building
-				features that are simple to use and easy to maintain: clean
-				routes, sensible data models, and straightforward validation.
-			</p>
-			<p>
-				I also have QA experience, so I approach problems by asking:
-				what can break, how do we reproduce it, and how do we confirm
-				the fix?
-			</p>
-			<p>
-				One of my main projects is TeaFarmPro, a farm management web
-				app for tracking production, tasks, inventory, and expenses.
+				I like building features that are easy to understand and easy
+				to maintain: clean routes, sensible data models, and clear
+				validation. My QA background helps me think in terms of
+				reproducible bugs, edge cases, and verification.
 			</p>
 			<p class="muted">
 				BSc Mathematics &amp; Computer Science — Multimedia University
@@ -94,10 +108,14 @@ daniel-kipkosgei-2ab84117b/"
 				<article class="card">
 					<h3>TeaFarmPro</h3>
 					<p class="muted">
-						Tea farm management web app. Tracks daily production,
-						task assignments, inventory, and expenses.
+						Tea farm management web app for tracking production,
+						tasks, inventory, and expenses.
 					</p>
-					<p class="links">
+					<ul class="bullets">
+						<li>Flask + SQL backend with real workflows</li>
+						<li>Deployed live demo</li>
+					</ul>
+					<p class="actions">
 						<a class="btn small primary"
 						href="https://teafarm-pro.onrender.com/"
 						target="_blank" rel="noopener">
@@ -114,9 +132,13 @@ daniel-kipkosgei-2ab84117b/"
 				<article class="card">
 					<h3>Portfolio Website</h3>
 					<p class="muted">
-						Simple personal portfolio site built with HTML and CSS.
+						Simple portfolio site (HTML + CSS) with clean structure
+						and readable content.
 					</p>
-					<p class="links">
+					<ul class="bullets">
+						<li>Fast, accessible, easy to maintain</li>
+					</ul>
+					<p class="actions">
 						<a class="btn small"
 						href="https://github.com/Chirchir-Dan/\
 Chirchir-Dan.github.io"
@@ -129,12 +151,16 @@ Chirchir-Dan.github.io"
 				<article class="card">
 					<h3>Lost &amp; Found Tracker</h3>
 					<p class="muted">
-						Web app to report items, upload images, and track status
-						changes. (In progress)
+						App to report items, upload images, and track status
+						updates. (In progress)
 					</p>
-					<p class="links">
+					<ul class="bullets">
+						<li>Backend + DB modeling focus</li>
+						<li>Planned: stronger validation and testing</li>
+					</ul>
+					<p class="actions">
 						<a class="btn small" href="#">
-							Repo (Coming soon.)
+							Repo (add link)
 						</a>
 					</p>
 				</article>
@@ -142,71 +168,72 @@ Chirchir-Dan.github.io"
 		</section>
 
 		<section id="skills" class="sec">
-	<h2>Skills</h2>
+			<h2>Skills</h2>
 
-	<div class="skill-grid">
-		<div class="skill-card">
-			<h3>Backend</h3>
-			<ul class="bullets">
-				<li>Python (Flask, SQLAlchemy)</li>
-				<li>REST APIs (CRUD, validation, error handling)</li>
-				<li>Basic Django exposure</li>
-			</ul>
-		</div>
+			<div class="skill-grid">
+				<div class="skill-card">
+					<h3>Backend</h3>
+					<ul class="bullets">
+						<li>Python (Flask), SQLAlchemy</li>
+						<li>REST APIs, validation, error handling</li>
+						<li>Django exposure (basics)</li>
+					</ul>
+				</div>
 
-		<div class="skill-card">
-			<h3>Databases</h3>
-			<ul class="bullets">
-				<li>MySQL, PostgreSQL, SQLite</li>
-				<li>Schema design basics, queries</li>
-			</ul>
-		</div>
+				<div class="skill-card">
+					<h3>Testing / QA</h3>
+					<ul class="bullets">
+						<li>Test cases, bug reports, regression checks</li>
+						<li>API testing (Postman, curl)</li>
+						<li>Unit testing basics where applicable</li>
+					</ul>
+				</div>
 
-		<div class="skill-card">
-			<h3>Testing / QA</h3>
-			<ul class="bullets">
-				<li>Test cases, bug reports, regression checks</li>
-				<li>API testing with Postman and curl</li>
-				<li>Basic unit testing where applicable</li>
-			</ul>
-		</div>
+				<div class="skill-card">
+					<h3>Frontend</h3>
+					<ul class="bullets">
+						<li>React basics (components, state, API calls)</li>
+						<li>HTML, CSS, JavaScript fundamentals</li>
+					</ul>
+				</div>
 
-		<div class="skill-card">
-			<h3>Frontend</h3>
-			<ul class="bullets">
-				<li>React (components, props/state, API integration)</li>
-				<li>HTML, CSS, basic JavaScript</li>
-			</ul>
-		</div>
+				<div class="skill-card">
+					<h3>Databases</h3>
+					<ul class="bullets">
+						<li>MySQL, PostgreSQL, SQLite</li>
+						<li>Schema design basics, queries</li>
+					</ul>
+				</div>
 
-		<div class="skill-card">
-			<h3>Languages</h3>
-			<ul class="bullets">
-				<li>Python</li>
-				<li>Go</li>
-				<li>Java</li>
-				<li>JavaScript</li>
-			</ul>
-		</div>
+				<div class="skill-card">
+					<h3>Languages</h3>
+					<ul class="bullets">
+						<li>Python</li>
+						<li>Go</li>
+						<li>Java</li>
+						<li>JavaScript</li>
+					</ul>
+				</div>
 
-		<div class="skill-card">
-			<h3>Tools</h3>
-			<ul class="bullets">
-				<li>Git/GitHub, Linux/SSH</li>
-				<li>Docker basics</li>
-				<li>Nginx/Apache setup &amp; debugging basics</li>
-			</ul>
-		</div>
-	</div>
-</section>
-
+				<div class="skill-card">
+					<h3>Tools</h3>
+					<ul class="bullets">
+						<li>Git/GitHub, Linux/SSH</li>
+						<li>Docker basics</li>
+						<li>Nginx/Apache debugging basics</li>
+					</ul>
+				</div>
+			</div>
+		</section>
 
 		<section id="learning" class="sec">
 			<h2>Learning</h2>
-			<p>
-				Right now I’m improving my testing habits, database design,
-				and Java fundamentals. I also practice DSA regularly.
-			</p>
+			<ul class="bullets">
+				<li>Writing more consistent tests for my own projects</li>
+				<li>Java fundamentals through small programs and practice</li>
+				<li>React UI work to consume and test my APIs end-to-end</li>
+				<li>DSA practice (LeetCode / GeeksforGeeks)</li>
+			</ul>
 		</section>
 
 		<section id="contact" class="sec">
@@ -218,7 +245,10 @@ Chirchir-Dan.github.io"
 						daniel1kipkosgei@gmail.com
 					</a>
 				</li>
-				<li>Phone: <a href="tel:+4915757183472">+49 157 5718 3472</a></li>
+				<li>
+					Phone:
+					<a href="tel:+4915757183472">+49 157 5718 3472</a>
+				</li>
 				<li>
 					GitHub:
 					<a href="https://github.com/Chirchir-Dan"
