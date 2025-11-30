@@ -58,6 +58,17 @@ a:hover{
 	padding:18px 0 18px;
 }
 
+.footer{
+	background:
+		radial-gradient(900px 420px at 15% 0%,
+		rgba(10,102,194,.22), transparent 60%),
+		radial-gradient(900px 420px at 90% 10%,
+		rgba(124,92,255,.18), transparent 60%),
+		linear-gradient(180deg, var(--dark), var(--dark2));
+	color:#fff;
+	padding:18px 0 18px;
+}
+
 .nav{
 	display:flex;
 	flex-wrap:wrap;
@@ -330,3 +341,4 @@ h1{
 	.wrap{width:calc(100% - 20px)}
 	h1{font-size:1.7rem}
 }
+
