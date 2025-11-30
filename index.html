@@ -3,9 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="description"
-	content="Daniel Kipkosgei — Backend Developer with QA experience \
-(API testing). Python/Flask, SQL, React basics, Go, Java.">
+	<meta name="description" content="Daniel Kipkosgei — Backend Developer with QA experience (API testing). Python/Flask, SQL, React basics, Go, Java.">
 	<title>Daniel Kipkosgei | Backend & QA</title>
 
 	<link rel="icon" href="assets/images/favicon1.PNG" type="image/x-icon">
@@ -14,6 +12,14 @@
 <body>
 	<header class="header" id="top">
 		<div class="wrap">
+			<nav class="nav" aria-label="Primary navigation">
+				<a href="#about">About</a>
+				<a href="#projects">Projects</a>
+				<a href="#skills">Skills</a>
+				<a href="#learning">Learning</a>
+				<a href="#contact">Contact</a>
+			</nav>
+
 			<div class="hero">
 				<div class="hero__copy">
 					<p class="kicker">Backend • APIs • QA mindset</p>
@@ -23,45 +29,44 @@
 					</p>
 
 					<p class="summary">
-						I build backend web apps with Python and SQL, and I enjoy
-						testing and debugging systems until they’re stable and
-						predictable. I’m also building small React UIs to consume
-						my APIs.
+						I build backend web apps with Python and SQL, and I test
+						and debug systems until they’re stable and predictable.
+						I’m also building small React UIs to consume my APIs.
 					</p>
 
 					<div class="cta">
-						<a class="btn primary" href="#projects">Projects</a>
+						<a class="btn primary" href="#projects">View projects</a>
 						<a class="btn" href="#skills">Skills</a>
 						<a class="btn ghost" href="#contact">Contact</a>
 					</div>
 
-					<p class="meta">
-						Based in Mannheim, Germany ·
+					<div class="meta">
+						<span>Based in Mannheim, Germany</span>
+						<span class="sep" aria-hidden="true">•</span>
 						<a href="mailto:daniel1kipkosgei@gmail.com">
 							daniel1kipkosgei@gmail.com
 						</a>
-					</p>
+					</div>
 
-					<p class="links">
+					<div class="links">
 						<a href="https://github.com/Chirchir-Dan"
 						target="_blank" rel="noopener">
 							GitHub
 						</a>
-						<span aria-hidden="true">·</span>
-						<a href="https://www.linkedin.com/in/\
-daniel-kipkosgei-2ab84117b/"
+						<span class="sep" aria-hidden="true">•</span>
+						<a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/"
 						target="_blank" rel="noopener">
 							LinkedIn
 						</a>
-						<span aria-hidden="true">·</span>
+						<span class="sep" aria-hidden="true">•</span>
 						<a href="https://medium.com/@dkipkosgei.daniel"
 						target="_blank" rel="noopener">
 							Blog
 						</a>
-					</p>
+					</div>
 				</div>
 
-				<div class="hero__card">
+				<aside class="hero__side" aria-label="Profile snapshot">
 					<img class="photo"
 					src="assets/images/bewerbungsfoto.jpg"
 					alt="Portrait of Daniel Kipkosgei">
@@ -73,16 +78,13 @@ daniel-kipkosgei-2ab84117b/"
 						<li>Go and Java (active practice)</li>
 						<li>Linux/SSH, Git/GitHub, Docker basics</li>
 					</ul>
-				</div>
-			</div>
 
-			<nav class="nav" aria-label="Primary navigation">
-				<a href="#about">About</a>
-				<a href="#projects">Projects</a>
-				<a href="#skills">Skills</a>
-				<a href="#learning">Learning</a>
-				<a href="#contact">Contact</a>
-			</nav>
+					<div class="side-cta">
+						<a class="btn small primary" href="#contact">Email me</a>
+						<a class="btn small" href="#projects">See work</a>
+					</div>
+				</aside>
+			</div>
 		</div>
 	</header>
 
@@ -90,10 +92,10 @@ daniel-kipkosgei-2ab84117b/"
 		<section id="about" class="sec">
 			<h2>About</h2>
 			<p>
-				I like building features that are easy to understand and easy
-				to maintain: clean routes, sensible data models, and clear
-				validation. My QA background helps me think in terms of
-				reproducible bugs, edge cases, and verification.
+				I build practical backend features with clean routes, sensible
+				data models, and clear validation. My QA background helps me
+				think in terms of reproducible bugs, edge cases, and verifying
+				fixes properly.
 			</p>
 			<p class="muted">
 				BSc Mathematics &amp; Computer Science — Multimedia University
@@ -115,7 +117,7 @@ daniel-kipkosgei-2ab84117b/"
 						<li>Flask + SQL backend with real workflows</li>
 						<li>Deployed live demo</li>
 					</ul>
-					<p class="actions">
+					<div class="actions">
 						<a class="btn small primary"
 						href="https://teafarm-pro.onrender.com/"
 						target="_blank" rel="noopener">
@@ -126,26 +128,24 @@ daniel-kipkosgei-2ab84117b/"
 						target="_blank" rel="noopener">
 							Repo
 						</a>
-					</p>
+					</div>
 				</article>
 
 				<article class="card">
 					<h3>Portfolio Website</h3>
 					<p class="muted">
-						Simple portfolio site (HTML + CSS) with clean structure
-						and readable content.
+						This website (HTML + CSS) with a simple, readable layout.
 					</p>
 					<ul class="bullets">
-						<li>Fast, accessible, easy to maintain</li>
+						<li>Fast and easy to maintain</li>
 					</ul>
-					<p class="actions">
+					<div class="actions">
 						<a class="btn small"
-						href="https://github.com/Chirchir-Dan/\
-Chirchir-Dan.github.io"
+						href="https://github.com/Chirchir-Dan/Chirchir-Dan.github.io"
 						target="_blank" rel="noopener">
 							Repo
 						</a>
-					</p>
+					</div>
 				</article>
 
 				<article class="card">
@@ -158,11 +158,11 @@ Chirchir-Dan.github.io"
 						<li>Backend + DB modeling focus</li>
 						<li>Planned: stronger validation and testing</li>
 					</ul>
-					<p class="actions">
+					<div class="actions">
 						<a class="btn small" href="#">
 							Repo (add link)
 						</a>
-					</p>
+					</div>
 				</article>
 			</div>
 		</section>
@@ -258,8 +258,7 @@ Chirchir-Dan.github.io"
 				</li>
 				<li>
 					LinkedIn:
-					<a href="https://www.linkedin.com/in/\
-daniel-kipkosgei-2ab84117b/"
+					<a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/"
 					target="_blank" rel="noopener">
 						daniel-kipkosgei
 					</a>
