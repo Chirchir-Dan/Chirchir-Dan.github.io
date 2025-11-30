@@ -1,122 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="Daniel Kipkosgei — Backend-focused Software Developer skilled in Python, Flask, and debugging web systems." />
-	<title>Daniel Kipkosgei | Backend Developer</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description"
+	content="Daniel Kipkosgei — Backend Developer with QA experience (API testing).">
+	<title>Daniel Kipkosgei | Backend & QA</title>
 
 	<link rel="icon" href="assets/images/favicon1.PNG" type="image/x-icon">
-	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<header>
-		<div class="profile">
-			<h1>DANIEL KIPKOSGEI</h1>
-			<p class="tagline">Backend Developer | Python • Flask • JavaScript • Go • Linux</p>
-			<p class="location">Based in Mannheim, Germany · +49 157 5718 3472</p>
-			<img src="assets/images/bewerbungsfoto.jpg" alt="Portrait of Daniel Kipkosgei" />
+	<header class="top" id="top">
+		<div class="wrap">
+			<div class="profile">
+				<div class="profile__copy">
+					<h1>DANIEL KIPKOSGEI</h1>
+					<p class="tagline">Backend Developer · QA (API testing)</p>
+					<p class="location">Based in Mannheim, Germany</p>
+
+					<p class="summary">
+						I build backend web apps with Python and SQL. I also have
+						QA experience, so I care about clear bug reports,
+						reproducible steps, and testing changes.
+					</p>
+
+					<div class="cta">
+						<a class="btn primary" href="#projects">Projects</a>
+						<a class="btn" href="#skills">Skills</a>
+						<a class="btn ghost" href="#contact">Contact</a>
+					</div>
+
+					<p class="meta">
+						<a href="mailto:daniel1kipkosgei@gmail.com">
+							daniel1kipkosgei@gmail.com
+						</a>
+						<span class="dot" aria-hidden="true">•</span>
+						<a href="https://github.com/Chirchir-Dan"
+						target="_blank" rel="noopener">
+							GitHub
+						</a>
+						<span class="dot" aria-hidden="true">•</span>
+						<a href="https://www.linkedin.com/in/\
+daniel-kipkosgei-2ab84117b/"
+						target="_blank" rel="noopener">
+							LinkedIn
+						</a>
+					</p>
+				</div>
+
+				<img class="photo"
+				src="assets/images/bewerbungsfoto.jpg"
+				alt="Portrait of Daniel Kipkosgei">
+			</div>
+
+			<nav class="nav">
+				<a href="#about">About</a>
+				<a href="#projects">Projects</a>
+				<a href="#skills">Skills</a>
+				<a href="#learning">Learning</a>
+				<a href="#contact">Contact</a>
+			</nav>
 		</div>
 	</header>
 
-	<nav>
-		<a href="#about">About</a>
-		<a href="#skills">Skills</a>
-		<a href="#projects">Projects</a>
-		<a href="#focus">Focus Areas</a>
-		<a href="#learning">Learning</a>
-		<a href="#contact">Contact</a>
-	</nav>
+	<main class="wrap">
+		<section id="about" class="sec">
+			<h2>About Me</h2>
+			<p>
+				I’m Daniel, a backend-focused developer. I like building
+				features that are simple to use and easy to maintain: clean
+				routes, sensible data models, and straightforward validation.
+			</p>
+			<p>
+				I also have QA experience, so I approach problems by asking:
+				what can break, how do we reproduce it, and how do we confirm
+				the fix?
+			</p>
+			<p>
+				One of my main projects is TeaFarmPro, a farm management web
+				app for tracking production, tasks, inventory, and expenses.
+			</p>
+			<p class="muted">
+				BSc Mathematics &amp; Computer Science — Multimedia University
+				of Kenya
+			</p>
+		</section>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a backend developer with a focus on Python and Flask. I completed foundational training
-      in full-stack software engineering through ALX, where I built RESTful APIs, worked on
-      database-backed applications, and practiced clean, modular coding.
-    </p>
-    <p>
-      My projects range from building a Lost & Found Tracker with image uploads to a Tea Farm
-      Manager that tracks production and costs. I enjoy solving real-world problems with
-      simple, reliable backend solutions and improving systems through debugging and automation.
-    </p>
-    <p>
-      Currently, I’m expanding my skills in advanced Python, database design, and system
-      architecture to build efficient, maintainable applications. I’m eager to contribute to
-      projects, collaborate with other developers, and continue learning through hands-on work.
-    </p>
-		<p class="education">
-			BSc Mathematics & Computer Science — Multimedia University of Kenya
-		</p>
-	</section>
+		<section id="projects" class="sec">
+			<h2>Projects</h2>
 
-	<section id="skills">
-		<h2>Skills</h2>
-		<ul>
-			<li>Python (Flask, SQLAlchemy, unit testing)</li>
-			<!-- <li>JavaScript (Node.js basics, frontend integration)</li> -->
-			<li>Go</li>
-			<li>Git, GitHub & API versioning</li>
-			<li>Linux / Ubuntu, SSH, Docker basics, firewall setup</li>
-			<li>Web server configuration (Nginx, Apache) and debugging</li>
-			<li>SQL & database management (MySQL, SQLite, Postgresql)</li>
-		</ul>
-	</section>
+			<div class="grid">
+				<article class="card">
+					<h3>TeaFarmPro</h3>
+					<p class="muted">
+						Tea farm management web app. Tracks daily production,
+						task assignments, inventory, and expenses.
+					</p>
+					<p class="links">
+						<a class="btn small primary"
+						href="https://teafarm-pro.onrender.com/"
+						target="_blank" rel="noopener">
+							Live demo
+						</a>
+						<a class="btn small"
+						href="https://github.com/Chirchir-Dan/teafarm_pro"
+						target="_blank" rel="noopener">
+							Repo
+						</a>
+					</p>
+				</article>
 
-	<section id="projects">
-		<h2>Projects</h2>
-		<ul>
-			<!-- <li><strong>Lost & Found Tracker</strong> — Flask app for reporting lost items with image uploads. <em>(link to repo)</em></li> -->
-			<li><strong>Tea Farm Manager</strong> — Tracks tea production, labour, and costs using Flask & MySQL. <a href="https://teafarm-pro.onrender.com/" target="_blank" rel="noopener">Visit App</a></li>
-			<!-- <li><strong>Task Manager API</strong> — REST API for managing user tasks with authentication. <em>(link to repo)</em></li> -->
-			<li><strong>Portfolio Website</strong> — Personal site built with HTML, CSS, and simple JS for smooth scrolling.</li>
-		</ul>
-	</section>
+				<article class="card">
+					<h3>Portfolio Website</h3>
+					<p class="muted">
+						Simple personal portfolio site built with HTML and CSS.
+					</p>
+					<p class="links">
+						<a class="btn small"
+						href="https://github.com/Chirchir-Dan/\
+Chirchir-Dan.github.io"
+						target="_blank" rel="noopener">
+							Repo
+						</a>
+					</p>
+				</article>
 
-	<section id="focus">
-		<h2>Focus Areas</h2>
-		<ul>
-			<li>Building and improving Flask-based APIs</li>
-			<li>Debugging and optimizing web server setups</li>
-			<li>Database design and maintenance (MySQL, Postgresql)</li>
-			<li>Automating backups and deployment scripts</li>
-			<li>Writing concise, consistent code and documentation</li>
-		</ul>
-	</section>
+				<article class="card">
+					<h3>Lost &amp; Found Tracker</h3>
+					<p class="muted">
+						Web app to report items, upload images, and track status
+						changes. (In progress)
+					</p>
+					<p class="links">
+						<a class="btn small" href="#">
+							Repo (add link)
+						</a>
+					</p>
+				</article>
+			</div>
+		</section>
 
-	<section id="learning">
-		<h2>Learning Journey</h2>
-		<p>
-			I continue sharpening my backend skills through online challenges.
-			Recently, I’ve been focusing on Java, strengthening my understanding of Python,
-			and learning frontend integration with Flask APIs.
-		</p>
-		<p>
-			I also enjoy exploring data structures and logic building.
-		</p>
-	</section>
+		<section id="skills" class="sec">
+			<h2>Skills</h2>
+			<ul class="bullets">
+				<li>Python (Flask, SQLAlchemy)</li>
+				<li>SQL databases (MySQL, PostgreSQL, SQLite)</li>
+				<li>QA: test cases, bug reports, API testing</li>
+				<li>Git/GitHub, Docker basics, Linux/SSH</li>
+				<li>Nginx/Apache setup &amp; debugging basics</li>
+			</ul>
+		</section>
 
-	<section id="contact">
-		<h2>Contact</h2>
-		<p>📧 <a href="mailto:daniel1kipkosgei@gmail.com">daniel1kipkosgei@gmail.com</a></p>
-		<p>📞 +49 157 5718 3472</p>
-		<p>💼 <a href="https://github.com/Chirchir-Dan" target="_blank" rel="noopener">GitHub: Chirchir-Dan</a></p>
-		<p>🔗 <a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" target="_blank" rel="noopener">LinkedIn</a></p>
-		<p>🐦 <a href="https://x.com/Dan_Chirchirs" target="_blank" rel="noopener">X / Twitter</a></p>
-	</section>
+		<section id="learning" class="sec">
+			<h2>Learning</h2>
+			<p>
+				Right now I’m improving my testing habits, database design,
+				and Java fundamentals. I also practice DSA regularly.
+			</p>
+		</section>
 
-	<footer>
-		<p>© 2025 Daniel Kipkosgei</p>
-	</footer>
+		<section id="contact" class="sec">
+			<h2>Contact</h2>
+			<ul class="bullets">
+				<li>
+					Email:
+					<a href="mailto:daniel1kipkosgei@gmail.com">
+						daniel1kipkosgei@gmail.com
+					</a>
+				</li>
+				<li>Phone: <a href="tel:+4915757183472">+49 157 5718 3472</a></li>
+				<li>
+					GitHub:
+					<a href="https://github.com/Chirchir-Dan"
+					target="_blank" rel="noopener">
+						Chirchir-Dan
+					</a>
+				</li>
+				<li>
+					LinkedIn:
+					<a href="https://www.linkedin.com/in/\
+daniel-kipkosgei-2ab84117b/"
+					target="_blank" rel="noopener">
+						daniel-kipkosgei
+					</a>
+				</li>
+			</ul>
+		</section>
 
-	<script>
-		document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-			a.addEventListener('click', e => {
-				e.preventDefault();
-				const id = a.getAttribute('href');
-				document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-			});
-		});
-	</script>
+		<footer class="foot">
+			<p>© 2025 Daniel Kipkosgei · <a href="#top">Top ↑</a></p>
+		</footer>
+	</main>
 </body>
 </html>
