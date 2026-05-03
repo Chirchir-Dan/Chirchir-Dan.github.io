@@ -1,477 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Daniel Kipkosgei — Frontend Developer. React Native, Next.js, TypeScript. Builds mobile and web apps.">
-    <title>Daniel Kipkosgei | Frontend Developer</title>
-    <style>
-        /* ---------- reset & basics ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            color: #1e1e2e;
-            background: #f9f9fb;
-            line-height: 1.6;
-        }
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        /* ---------- header ---------- */
-        .header {
-            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
-            color: white;
-            padding: 40px 0 30px;
-        }
-        .header .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .hero-text {
-            flex: 2;
-            min-width: 280px;
-        }
-        .hero-text h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
-        }
-        .hero-text .title {
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 12px;
-            color: #a0a0c0;
-        }
-        .hero-text .status {
-            display: inline-block;
-            background: rgba(255,255,255,0.12);
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-        .hero-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 8px;
-        }
-        .hero-links a {
-            color: #e0e0ff;
-            font-weight: 500;
-            font-size: 0.95rem;
-            background: rgba(255,255,255,0.08);
-            padding: 6px 14px;
-            border-radius: 20px;
-            transition: background 0.2s;
-        }
-        .hero-links a:hover {
-            background: rgba(255,255,255,0.2);
-            text-decoration: none;
-        }
-        .hero-image {
-            flex: 1;
-            text-align: right;
-            min-width: 150px;
-            margin-top: 10px;
-        }
-        .hero-image img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.3);
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Daniel Kipkosgei — Frontend & Mobile Developer in Germany. React Native, Next.js, TypeScript." />
+<title>Daniel Kipkosgei | Frontend & Mobile Developer</title>
 
-        /* ---------- sections ---------- */
-        section {
-            padding: 60px 0;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 24px;
-            color: #1e1e2e;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-        }
-        .about-text {
-            font-size: 1.1rem;
-            max-width: 700px;
-        }
-        /* ---------- project cards ---------- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .project-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        .project-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background: #e2e8f0;
-        }
-        .project-card .card-content {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            color: #1e1e2e;
-        }
-        .project-card .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 8px 0 12px;
-        }
-        .tech-stack span {
-            background: #eef2ff;
-            color: #1e3a8a;
-            padding: 4px 10px;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .project-card p {
-            font-size: 0.95rem;
-            color: #4a4a5a;
-            margin-bottom: 12px;
-        }
-        .project-card .actions {
-            margin-top: auto;
-            display: flex;
-            gap: 10px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-align: center;
-            transition: background 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-            border: none;
-        }
-        .btn-primary:hover {
-            background: #1d4ed8;
-            text-decoration: none;
-        }
-        .btn-outline {
-            background: transparent;
-            color: #2563eb;
-            border: 1.5px solid #2563eb;
-        }
-        .btn-outline:hover {
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-        }
-        .private-note {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-top: 6px;
-        }
-        /* ---------- skills ---------- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-        .skill-category {
-            background: white;
-            padding: 18px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        .skill-category h4 {
-            margin-bottom: 10px;
-            color: #1e1e2e;
-        }
-        .skill-category ul {
-            list-style: none;
-            padding: 0;
-        }
-        .skill-category li {
-            padding: 3px 0;
-            font-size: 0.95rem;
-            color: #333;
-        }
-        /* ---------- cv download ---------- */
-        .cv-section {
-            background: #eef2ff;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-        }
-        .cv-section .btn {
-            margin: 10px 0;
-        }
-        /* ---------- footer ---------- */
-        footer {
-            background: #1e1e2e;
-            color: #ccc;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        footer a {
-            color: #a0a0ff;
-        }
-        /* responsive */
-        @media (max-width: 700px) {
-            .header .container {
-                flex-direction: column;
-            }
-            .hero-image {
-                text-align: left;
-                margin-top: 20px;
-            }
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: #0f172a;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding: 80px 0;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-left {
+    flex: 2;
+}
+
+.hero h1 {
+    font-size: 3.4rem;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.hero-title {
+    font-size: 1.3rem;
+    color: #cbd5e1;
+    margin-bottom: 18px;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.badge {
+    background: rgba(255,255,255,0.08);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: .92rem;
+}
+
+.hero-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.hero-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.15);
+}
+
+/* VALUE */
+
+.value-box {
+    background: white;
+    border-radius: 18px;
+    padding: 36px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.05);
+    font-size: 1.1rem;
+}
+
+/* CARDS */
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0,0,0,.06);
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 28px;
+}
+
+.featured {
+    border: 2px solid #2563eb;
+}
+
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.tech span {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: .85rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 28px;
+}
+
+ul.clean {
+    list-style: none;
+    margin: 18px 0;
+}
+
+ul.clean li {
+    margin-bottom: 10px;
+}
+
+/* EXPERIENCE */
+
+.experience-box {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 20px;
+}
+
+.skill-box {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+}
+
+.skill-box h4 {
+    margin-bottom: 14px;
+}
+
+.skill-box ul {
+    list-style: none;
+}
+
+.skill-box li {
+    margin-bottom: 8px;
+}
+
+/* CTA */
+
+.cta {
+    text-align: center;
+    background: #eff6ff;
+    padding: 60px;
+    border-radius: 24px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-links,
+    .badges {
+        justify-content: center;
+    }
+}
+</style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="hero-text">
-                <h1>Daniel Kipkosgei</h1>
-                <div class="title">Frontend Developer — React Native, Next.js, TypeScript</div>
-                <div class="status">
-                    🇩🇪 Based in Mannheim · Available immediately · Chancenkarte (ZAB-recognized) · German B2
-                </div>
-                <div class="hero-links">
-                    <a href="mailto:daniel1kipkosgei@gmail.com">📧 Email</a>
-                    <a href="https://github.com/Chirchir-Dan" target="_blank">🐙 GitHub</a>
-                    <a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" target="_blank">💼 LinkedIn</a>
-                    <a href="#contact">📞 Phone</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="assets/images/bewerbungsfoto.jpg" alt="Daniel Kipkosgei">
-            </div>
-        </div>
-    </header>
 
-    <main class="container">
-        <!-- About -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p class="about-text">
-                I'm a frontend developer who loves turning complex ideas into clean, performant interfaces.
-                With a BSc in Mathematics & Computer Science (ZAB-recognized) and a QA background, I write code that considers every edge case.
-                I build mobile apps with React Native (Expo) and web apps with Next.js/Tailwind CSS — from local-first databases to beautiful analytics dashboards.
-                I'm currently in Mannheim, holding a Chancenkarte, and ready to start immediately. German B2, English C1.
-            </p>
-        </section>
+<header class="hero">
+<div class="container hero-content">
 
-        <!-- Projects -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Chaifarm -->
-                <div class="project-card">
-                    <!-- Replace with actual screenshot: I'll use a placeholder image via placeholder.com -->
-                    <img src="https://via.placeholder.com/400x200/1e1e2e/ffffff?text=Chaifarm+Screenshot" 
-                         alt="Chaifarm app screenshots">
-                    <div class="card-content">
-                        <h3>Chaifarm</h3>
-                        <div class="tech-stack">
-                            <span>React Native</span><span>Expo</span><span>TypeScript</span><span>SQLite</span>
-                            <span>Chart-kit</span><span>PDF</span><span>Google Play</span>
-                        </div>
-                        <p>
-                            Mobile farm management app for tea farmers — track production, expenses, employees, and view analytics.
-                            Offline-first with local SQLite database and PDF report sharing.
-                        </p>
-                        <div class="actions">
-                            <!-- When you record a Loom video, put the link here -->
-                            <a href="#" class="btn btn-primary">▶ Watch demo (Loom)</a>
-                            <a href="#" class="btn btn-outline">Google Play</a>
-                        </div>
-                        <p class="private-note">🔒 Private repo – code review available in interview</p>
-                    </div>
-                </div>
+<div class="hero-left">
+<h1>Daniel Kipkosgei</h1>
 
-                <!-- Kutiit -->
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/2d2d44/ffffff?text=Kutiit+Screenshot" 
-                         alt="Kutiit dictionary app screen">
-                    <div class="card-content">
-                        <h3>Kutiit</h3>
-                        <div class="tech-stack">
-                            <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vercel</span>
-                        </div>
-                        <p>
-                            Digital dictionary for my endangered mother tongue — preserving language through community contributions.
-                            Fuzzy search, word submission, and fast SSR.
-                        </p>
-                        <div class="actions">
-                            <a href="#" class="btn btn-primary">🌐 Live demo (Vercel)</a>
-                            <!-- If you make the repo public, link it here; otherwise remove button -->
-                            <a href="#" class="btn btn-outline">Repo</a>
-                        </div>
-                    </div>
-                </div>
+<div class="hero-title">
+Frontend & Mobile Developer — Building practical applications for real-world use
+</div>
 
-                <!-- Quizzcal -->
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x200/2563eb/ffffff?text=Quizzcal+Screenshot" 
-                         alt="Quizzcal quiz app interface">
-                    <div class="card-content">
-                        <h3>Quizzcal</h3>
-                        <div class="tech-stack">
-                            <span>React</span><span>TypeScript</span><span>REST API</span>
-                        </div>
-                        <p>
-                            Interactive quiz app with real-time scoring and dynamic question modules.
-                            Clean component architecture and state management with React Hooks.
-                        </p>
-                        <div class="actions">
-                            <a href="#" class="btn btn-primary">🌐 Live demo</a>
-                            <a href="#" class="btn btn-outline">Repo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="badges">
+<div class="badge">📍 Mannheim, Germany</div>
+<div class="badge">🇩🇪 Work Authorization (Chancenkarte)</div>
+<div class="badge">⚡ Available Immediately</div>
+<div class="badge">🎓 ZAB Recognized Degree</div>
+<div class="badge">🗣 German B2 / English C1</div>
+</div>
 
-        <!-- Skills -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Mobile Frontend</h4>
-                    <ul>
-                        <li>React Native (Expo)</li>
-                        <li>TypeScript</li>
-                        <li>React Navigation</li>
-                        <li>expo-sqlite</li>
-                        <li>chart-kit</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Web Frontend</h4>
-                    <ul>
-                        <li>Next.js</li>
-                        <li>React</li>
-                        <li>Tailwind CSS</li>
-                        <li>HTML/CSS</li>
-                        <li>JavaScript</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Backend & DB</h4>
-                    <ul>
-                        <li>Python (Flask, Django)</li>
-                        <li>SQL (SQLite, Postgres)</li>
-                        <li>REST APIs</li>
-                        <li>Go basics</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Testing / QA</h4>
-                    <ul>
-                        <li>Manual testing</li>
-                        <li>Jest</li>
-                        <li>API testing</li>
-                        <li>Bug tracking</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>DevOps & Tools</h4>
-                    <ul>
-                        <li>Git/GitHub</li>
-                        <li>EAS Build</li>
-                        <li>Google Play Console</li>
-                        <li>Linux, SSH</li>
-                        <li>Docker basics</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Languages</h4>
-                    <ul>
-                        <li>TypeScript</li>
-                        <li>Python</li>
-                        <li>Go</li>
-                        <li>German B2</li>
-                        <li>English C1</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<div class="hero-links">
+<a href="mailto:daniel1kipkosgei@gmail.com" class="btn btn-primary">Contact Me</a>
+<a href="https://github.com/Chirchir-Dan" class="btn btn-outline" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" class="btn btn-outline" target="_blank">LinkedIn</a>
+</div>
+</div>
 
-        <!-- CV Download -->
-        <section id="cv">
-            <h2>Curriculum Vitae</h2>
-            <div class="cv-section">
-                <p style="font-size: 1.1rem; margin-bottom: 10px;">
-                    Full CV with detailed project descriptions, work authorization, and education.
-                </p>
-                <a href="Lebenslauf_Daniel.pdf" class="btn btn-primary" download>
-                    📄 Download CV (PDF)
-                </a>
-                <p style="margin-top: 8px; font-size:0.9rem;">
-                    (If the download doesn't start, right-click and choose "Save link as…")
-                </p>
-            </div>
-        </section>
+<div class="hero-image">
+<img src="assets/images/bewerbungsfoto.jpg" alt="Daniel Kipkosgei">
+</div>
 
-        <!-- Contact -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <p style="font-size: 1.05rem;">
-                📧 <a href="mailto:daniel1kipkosgei@gmail.com">daniel1kipkosgei@gmail.com</a> &nbsp;|&nbsp;
-                📞 <a href="tel:+4915757183472">+49 157 5718 3472</a> &nbsp;|&nbsp;
-                🐙 <a href="https://github.com/Chirchir-Dan" target="_blank">Chirchir-Dan</a> &nbsp;|&nbsp;
-                💼 <a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" target="_blank">LinkedIn</a>
-            </p>
-        </section>
-    </main>
+</div>
+</header>
 
-    <footer>
-        <div class="container">
-            © 2025 Daniel Kipkosgei — Built with simple HTML & CSS. <a href="#top">Back to top ↑</a>
-        </div>
-    </footer>
+<main class="container">
+
+<section>
+<div class="value-box">
+I build reliable applications that solve practical problems.
+
+From an offline-first farm management mobile app for tea farmers to a language preservation platform for my native community, my work focuses on usability, resilience, and thoughtful engineering.
+
+With a background in Software QA and a BSc in Mathematics & Computer Science, I approach development with strong attention to edge cases, performance, and maintainable architecture.
+</div>
+</section>
+
+<section>
+<h2>Featured Project</h2>
+
+<div class="card featured">
+<img src="assets/images/chaifarm.jpg" alt="Chaifarm">
+
+<div class="card-content">
+<h3>Chaifarm — Mobile Farm Management App</h3>
+
+<div class="tech">
+<span>React Native</span>
+<span>Expo</span>
+<span>TypeScript</span>
+<span>SQLite</span>
+<span>PDF Reports</span>
+</div>
+
+<p>
+Production-ready mobile application built for tea farmers to manage operations fully offline.
+</p>
+
+<ul class="clean">
+<li>📴 Offline-first local database architecture</li>
+<li>📊 Tracks production, expenses, employee records</li>
+<li>📄 Generates exportable PDF reports</li>
+<li>📱 Published on Google Play (closed testing)</li>
+</ul>
+
+<div class="hero-links">
+<a href="YOUR_LOOM_LINK" class="btn btn-primary">Watch Demo</a>
+<a href="YOUR_PLAYSTORE_LINK" class="btn btn-outline">Google Play</a>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Projects</h2>
+
+<div class="project-grid">
+
+<div class="card">
+<img src="assets/images/kutiit.jpg" alt="Kutiit">
+
+<div class="card-content">
+<h3>Kutiit</h3>
+
+<div class="tech">
+<span>Next.js</span>
+<span>TypeScript</span>
+<span>Tailwind</span>
+<span>Vercel</span>
+</div>
+
+<p><strong>Problem:</strong> Endangered language lacked digital presence.</p>
+<p><strong>Solution:</strong> Built searchable digital dictionary platform.</p>
+
+<div class="hero-links" style="margin-top:18px;">
+<a href="YOUR_VERCEL_LINK" class="btn btn-primary">Live Demo</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/images/quizzcal.jpg" alt="Quizzcal">
+
+<div class="card-content">
+<h3>Quizzcal</h3>
+
+<div class="tech">
+<span>React</span>
+<span>TypeScript</span>
+<span>REST API</span>
+</div>
+
+<p><strong>Problem:</strong> Static quiz tools lacked engagement.</p>
+<p><strong>Solution:</strong> Built interactive scoring platform with dynamic modules.</p>
+
+<div class="hero-links" style="margin-top:18px;">
+<a href="YOUR_GITHUB_REPO" class="btn btn-primary">Repository</a>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Professional Experience</h2>
+
+<div class="experience-box">
+<h3>Software QA Engineer</h3>
+
+<ul class="clean">
+<li>Identified software defects and usability issues</li>
+<li>Performed manual and API testing</li>
+<li>Collaborated with developers to improve reliability</li>
+<li>Focused on edge-case validation and software quality</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>Technical Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-box">
+<h4>Frontend & Mobile</h4>
+<ul>
+<li>React Native</li>
+<li>Expo</li>
+<li>Next.js</li>
+<li>React</li>
+<li>TypeScript</li>
+</ul>
+</div>
+
+<div class="skill-box">
+<h4>Databases & APIs</h4>
+<ul>
+<li>SQLite</li>
+<li>PostgreSQL</li>
+<li>REST APIs</li>
+</ul>
+</div>
+
+<div class="skill-box">
+<h4>Testing & Quality</h4>
+<ul>
+<li>Manual Testing</li>
+<li>Jest</li>
+<li>API Testing</li>
+<li>Bug Tracking</li>
+</ul>
+</div>
+
+<div class="skill-box">
+<h4>Tools & Deployment</h4>
+<ul>
+<li>Git / GitHub</li>
+<li>EAS Build</li>
+<li>Google Play Console</li>
+<li>Linux</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Work Preferences</h2>
+
+<div class="value-box">
+📍 Germany-wide opportunities (open to relocation)<br><br>
+💼 Frontend / Mobile Developer roles<br><br>
+⚡ Available immediately
+</div>
+</section>
+
+<section>
+<div class="cta">
+<h2>Let’s Build Useful Software</h2>
+<p style="margin:18px 0;">
+I'm actively seeking frontend and mobile development opportunities in Germany.
+</p>
+
+<a href="mailto:daniel1kipkosgei@gmail.com" class="btn btn-primary">
+Get In Touch
+</a>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+Built and designed by Daniel Kipkosgei
+</div>
+</footer>
+
 </body>
 </html>
