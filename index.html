@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Daniel Kipkosgei — Frontend & Mobile Developer. React Native, Next.js, TypeScript." />
     <title>Daniel Kipkosgei | Frontend & Mobile Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -67,19 +71,53 @@
         /* CARDS */
         .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
         .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
         .card-content { padding: 24px; }
         .tech { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0; }
         .tech span { background: #eff6ff; color: #1d4ed8; padding: 4px 12px; border-radius: 30px; font-size: 0.8rem; }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
 
-        /* CAROUSEL */
-        .carousel { position: relative; width: 100%; height: 250px; overflow: hidden; }
-        .carousel img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.4s ease; }
+        /* CAROUSEL – NO MORE CROPPING */
+        .carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: #0f172a;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .carousel img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            background: #0f172a;
+        }
         .carousel img.active { opacity: 1; }
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 1.5rem; padding: 8px 12px; cursor: pointer; border-radius: 50%; z-index: 5; }
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.55); color: white; border: none;
+            font-size: 1.4rem; padding: 6px 14px; cursor: pointer;
+            border-radius: 50%; z-index: 10;
+            transition: background 0.2s;
+        }
+        .carousel-btn:hover { background: rgba(0,0,0,0.75); }
         .carousel-btn.prev { left: 10px; }
         .carousel-btn.next { right: 10px; }
+
+        /* LIGHTBOX */
+        .lightbox {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+            z-index: 999; align-items: center; justify-content: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 30px;
+            color: white; font-size: 2rem; cursor: pointer; z-index: 1000;
+        }
 
         /* CERTIFICATES */
         .certificates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
@@ -97,9 +135,31 @@
 
         footer { background: #0f172a; color: #cbd5e1; text-align: center; padding: 30px 0; margin-top: 60px; }
 
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            background: #2563eb;
+            color: white;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 99;
+            text-decoration: none;
+        }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+
         @media (max-width: 768px) {
             .hero-content { text-align: center; }
             .hero-links, .badges { justify-content: center; }
+            .carousel { aspect-ratio: 4 / 5; }
+            .back-to-top { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -130,7 +190,6 @@
 </header>
 
 <main class="container">
-    <!-- About -->
     <section class="reveal">
         <h2 data-i18n="about-heading">About Me</h2>
         <div class="card" style="padding:32px;font-size:1.05rem;" data-i18n="about-text">
@@ -138,7 +197,6 @@
         </div>
     </section>
 
-    <!-- Featured Project (Chaifarm) -->
     <section class="reveal">
         <h2 data-i18n="featured-heading">Featured Project</h2>
         <div class="card">
@@ -151,14 +209,13 @@
                 </div>
                 <p data-i18n="chaifarm-desc">Offline farm management app for tea farmers – production, expenses, staff and PDF reports.</p>
                 <div class="hero-links" style="margin-top:18px">
-                    <a href="https://drive.google.com/file/d/1KnCscZpttC55aaNnaFTDvnf_85lCq7U2/view?usp=drivesdk" class="btn btn-primary">▶ Watch Demo</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.chirchirdan.chaiFarm" class="btn btn-outline">Google Play</a>
+                    <a href="https://drive.google.com/file/d/1KnCscZpttC55aaNnaFTDvnf_85lCq7U2/view?usp=drivesdk" class="btn btn-primary" target="_blank">▶ Watch Demo</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.chirchirdan.chaiFarm" class="btn btn-outline" target="_blank">Google Play</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects -->
     <section class="reveal">
         <h2 data-i18n="projects-heading">Projects</h2>
         <div class="project-grid">
@@ -169,8 +226,8 @@
                     <div class="tech"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>Supabase</span><span>Vercel</span></div>
                     <p data-i18n="kutiit-desc">Digital dictionary for my endangered mother tongue – fuzzy search, community entries.</p>
                     <div class="hero-links" style="margin-top:18px">
-                        <a href="https://github.com/Chirchir-Dan/kutiit2/" class="btn btn-primary">Repo</a>
-                        <a href="https://kitwek.vercel.app" class="btn btn-outline">Live</a>
+                        <a href="https://github.com/Chirchir-Dan/kutiit2/" class="btn btn-primary" target="_blank">Repo</a>
+                        <a href="https://kutiit.vercel.app" class="btn btn-outline" target="_blank">Live</a>
                     </div>
                 </div>
             </div>
@@ -181,15 +238,14 @@
                     <div class="tech"><span>React</span><span>TypeScript</span><span>REST API</span></div>
                     <p data-i18n="quizzcal-desc">Interactive quiz platform with real‑time scoring and dynamic modules.</p>
                     <div class="hero-links" style="margin-top:18px">
-                        <a href="https://github.com/Chirchir-Dan/quizzical" class="btn btn-primary">Repo</a>
-                        <a href="https://quizzcal.vercel.app/" class="btn btn-outline">Live</a>
+                        <a href="https://github.com/Chirchir-Dan/quizzical" class="btn btn-primary" target="_blank">Repo</a>
+                        <a href="https://quizzcal.vercel.app/" class="btn btn-outline" target="_blank">Live</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Professional Experience -->
     <section class="reveal">
         <h2 data-i18n="experience-heading">Experience</h2>
         <div class="card" style="padding:24px">
@@ -202,13 +258,11 @@
         </div>
     </section>
 
-    <!-- Certificates -->
     <section class="reveal">
         <h2 data-i18n="certificates-heading">Certificates</h2>
         <div class="certificates-grid" id="certificates-grid"></div>
     </section>
 
-    <!-- Skills -->
     <section class="reveal">
         <h2 data-i18n="skills-heading">Skills</h2>
         <div class="skills-grid">
@@ -219,7 +273,6 @@
         </div>
     </section>
 
-    <!-- CV Download -->
     <section id="cv-download" class="reveal">
         <h2 data-i18n="cv-heading">Download CV</h2>
         <div class="cta-box">
@@ -229,7 +282,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="reveal">
         <div class="cta-box">
             <h2 data-i18n="cta-heading">Let's Build Together</h2>
@@ -242,6 +294,15 @@
 <footer>
     <div class="container" data-i18n="footer">Designed & built by Daniel Kipkosgei</div>
 </footer>
+
+<!-- Back to top -->
+<a href="#" class="back-to-top" id="backToTop" title="Back to top">↑</a>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img src="" alt="Enlarged screenshot" id="lightbox-img">
+</div>
 
 <script>
     // ==================== TRANSLATIONS ====================
@@ -267,7 +328,6 @@
             "cta-text": "I'm looking for frontend / mobile developer roles in Germany.",
             "cta-button": "Get In Touch",
             "footer": "Designed & built by Daniel Kipkosgei",
-            // Certificate names
             "cert-alx": "ALX Software Engineering",
             "cert-degree": "Degree (BSc)",
             "cert-hcia": "HCIA (Huawei)",
@@ -323,9 +383,8 @@
         document.getElementById('lang-de').classList.toggle('active', lang==='de');
         renderBadges();
         renderCertificates();
-        // restart typewriter
         const title = document.getElementById('typed-title');
-        const newText = lang==='en' 
+        const newText = lang==='en'
           ? 'Frontend & Mobile Developer — Building practical applications for real-world use'
           : 'Frontend‑ & Mobile‑Entwickler — Praktische Anwendungen für den Alltag';
         typeWriter(title, newText);
@@ -364,7 +423,7 @@
         container.innerHTML = items.map(t => `<div class="badge">${t}</div>`).join('');
     }
 
-    // ==================== CERTIFICATES (real PDFs) ====================
+    // ==================== CERTIFICATES ====================
     const certificateFiles = [
         { file: "alx.pdf", key: "cert-alx" },
         { file: "degree.pdf", key: "cert-degree" },
@@ -400,12 +459,11 @@
     function createCarousel(containerId, imageArray) {
         const container = document.getElementById(containerId);
         if (!container || imageArray.length === 0) return;
-        
-        // build HTML
-        container.innerHTML = imageArray.map((src, idx) => 
-            `<img src="${src}" alt="" class="${idx === 0 ? 'active' : ''}">`
+
+        container.innerHTML = imageArray.map((src, idx) =>
+            `<img src="${src}" alt="" class="${idx === 0 ? 'active' : ''}" data-full="${src}">`
         ).join('');
-        
+
         if (imageArray.length > 1) {
             container.innerHTML += `
                 <button class="carousel-btn prev">❮</button>
@@ -418,9 +476,24 @@
                 current = (n + images.length) % images.length;
                 images[current].classList.add('active');
             }
-            container.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
-            container.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+            container.querySelector('.prev').addEventListener('click', e => {
+                e.stopPropagation();
+                show(current - 1);
+            });
+            container.querySelector('.next').addEventListener('click', e => {
+                e.stopPropagation();
+                show(current + 1);
+            });
         }
+
+        // Lightbox on click
+        container.addEventListener('click', function(e) {
+            const activeImg = container.querySelector('img.active');
+            if (activeImg && e.target.tagName !== 'BUTTON') {
+                document.getElementById('lightbox-img').src = activeImg.getAttribute('data-full') || activeImg.src;
+                document.getElementById('lightbox').classList.add('active');
+            }
+        });
     }
 
     // ==================== SCROLL REVEAL ====================
@@ -430,25 +503,41 @@
         });
     }, { threshold: 0.15 });
 
+    // ==================== BACK TO TOP ====================
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ==================== LIGHTBOX CLOSE ====================
+    document.getElementById('lightbox-close').addEventListener('click', () => {
+        document.getElementById('lightbox').classList.remove('active');
+    });
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) this.classList.remove('active');
+    });
+
     // ==================== INIT ====================
     window.addEventListener('DOMContentLoaded', () => {
         renderBadges();
         renderCertificates();
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        
-        // init carousels
+
         createCarousel('chaifarm-carousel', projectImages.chaifarm);
         createCarousel('kutiit-carousel', projectImages.kutiit);
         createCarousel('quizzcal-carousel', projectImages.quizzcal);
-        
-        // start typewriter
+
         const titleEl = document.getElementById('typed-title');
         typeWriter(titleEl, 'Frontend & Mobile Developer — Building practical applications for real-world use');
-        
-        // language switch listeners
+
         document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
         document.getElementById('lang-de').addEventListener('click', () => switchLanguage('de'));
     });
 </script>
+
 </body>
 </html>
