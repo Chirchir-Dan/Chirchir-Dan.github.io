@@ -1,306 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="description" content="Daniel Kipkosgei — Frontend Developer. React Native, Next.js, TypeScript.">
-	<title>Daniel Kipkosgei | Frontend Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daniel Kipkosgei — Frontend Developer. React Native, Next.js, TypeScript. Builds mobile and web apps.">
+    <title>Daniel Kipkosgei | Frontend Developer</title>
+    <style>
+        /* ---------- reset & basics ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #1e1e2e;
+            background: #f9f9fb;
+            line-height: 1.6;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* ---------- header ---------- */
+        .header {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+            color: white;
+            padding: 40px 0 30px;
+        }
+        .header .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .hero-text {
+            flex: 2;
+            min-width: 280px;
+        }
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+        .hero-text .title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #a0a0c0;
+        }
+        .hero-text .status {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .hero-links a {
+            color: #e0e0ff;
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        .hero-links a:hover {
+            background: rgba(255,255,255,0.2);
+            text-decoration: none;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            min-width: 150px;
+            margin-top: 10px;
+        }
+        .hero-image img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
 
-	<link rel="icon" href="assets/images/favicon1.PNG" type="image/x-icon">
-	<link rel="stylesheet" href="assets/css/style.css">
+        /* ---------- sections ---------- */
+        section {
+            padding: 60px 0;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: #1e1e2e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        .about-text {
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+        /* ---------- project cards ---------- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+        .project-card .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #1e1e2e;
+        }
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 8px 0 12px;
+        }
+        .tech-stack span {
+            background: #eef2ff;
+            color: #1e3a8a;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .project-card p {
+            font-size: 0.95rem;
+            color: #4a4a5a;
+            margin-bottom: 12px;
+        }
+        .project-card .actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+            text-decoration: none;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 1.5px solid #2563eb;
+        }
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+        }
+        .private-note {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 6px;
+        }
+        /* ---------- skills ---------- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .skill-category h4 {
+            margin-bottom: 10px;
+            color: #1e1e2e;
+        }
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-category li {
+            padding: 3px 0;
+            font-size: 0.95rem;
+            color: #333;
+        }
+        /* ---------- cv download ---------- */
+        .cv-section {
+            background: #eef2ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+        .cv-section .btn {
+            margin: 10px 0;
+        }
+        /* ---------- footer ---------- */
+        footer {
+            background: #1e1e2e;
+            color: #ccc;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #a0a0ff;
+        }
+        /* responsive */
+        @media (max-width: 700px) {
+            .header .container {
+                flex-direction: column;
+            }
+            .hero-image {
+                text-align: left;
+                margin-top: 20px;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-	<header class="header" id="top">
-		<div class="wrap">
-			<nav class="nav" aria-label="Primary navigation">
-				<a href="#about">About</a>
-				<a href="#projects">Projects</a>
-				<a href="#skills">Skills</a>
-				<a href="#cv">CV</a>
-				<a href="#contact">Contact</a>
-			</nav>
+    <header class="header">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Daniel Kipkosgei</h1>
+                <div class="title">Frontend Developer — React Native, Next.js, TypeScript</div>
+                <div class="status">
+                    🇩🇪 Based in Mannheim · Available immediately · Chancenkarte (ZAB-recognized) · German B2
+                </div>
+                <div class="hero-links">
+                    <a href="mailto:daniel1kipkosgei@gmail.com">📧 Email</a>
+                    <a href="https://github.com/Chirchir-Dan" target="_blank">🐙 GitHub</a>
+                    <a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" target="_blank">💼 LinkedIn</a>
+                    <a href="#contact">📞 Phone</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/bewerbungsfoto.jpg" alt="Daniel Kipkosgei">
+            </div>
+        </div>
+    </header>
 
-			<div class="hero">
-				<div class="hero__copy">
-					<p class="kicker">React Native • Next.js • TypeScript</p>
-					<h1>DANIEL KIPKOSGEI</h1>
-					<p class="tagline">
-						Frontend Developer · Mobile & Web Apps
-					</p>
+    <main class="container">
+        <!-- About -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="about-text">
+                I'm a frontend developer who loves turning complex ideas into clean, performant interfaces.
+                With a BSc in Mathematics & Computer Science (ZAB-recognized) and a QA background, I write code that considers every edge case.
+                I build mobile apps with React Native (Expo) and web apps with Next.js/Tailwind CSS — from local-first databases to beautiful analytics dashboards.
+                I'm currently in Mannheim, holding a Chancenkarte, and ready to start immediately. German B2, English C1.
+            </p>
+        </section>
 
-					<p class="summary">
-						I build mobile and web apps that help people manage real-world tasks — from tea farm operations to preserving endangered languages. My QA background means I obsess over edge cases and deliver reliable, polished interfaces.
-					</p>
+        <!-- Projects -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Chaifarm -->
+                <div class="project-card">
+                    <!-- Replace with actual screenshot: I'll use a placeholder image via placeholder.com -->
+                    <img src="https://via.placeholder.com/400x200/1e1e2e/ffffff?text=Chaifarm+Screenshot" 
+                         alt="Chaifarm app screenshots">
+                    <div class="card-content">
+                        <h3>Chaifarm</h3>
+                        <div class="tech-stack">
+                            <span>React Native</span><span>Expo</span><span>TypeScript</span><span>SQLite</span>
+                            <span>Chart-kit</span><span>PDF</span><span>Google Play</span>
+                        </div>
+                        <p>
+                            Mobile farm management app for tea farmers — track production, expenses, employees, and view analytics.
+                            Offline-first with local SQLite database and PDF report sharing.
+                        </p>
+                        <div class="actions">
+                            <!-- When you record a Loom video, put the link here -->
+                            <a href="#" class="btn btn-primary">▶ Watch demo (Loom)</a>
+                            <a href="#" class="btn btn-outline">Google Play</a>
+                        </div>
+                        <p class="private-note">🔒 Private repo – code review available in interview</p>
+                    </div>
+                </div>
 
-					<div class="cta">
-						<a class="btn primary" href="#projects">View projects</a>
-						<a class="btn" href="#skills">Skills</a>
-						<a class="btn ghost" href="#cv">Download CV</a>
-					</div>
+                <!-- Kutiit -->
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200/2d2d44/ffffff?text=Kutiit+Screenshot" 
+                         alt="Kutiit dictionary app screen">
+                    <div class="card-content">
+                        <h3>Kutiit</h3>
+                        <div class="tech-stack">
+                            <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vercel</span>
+                        </div>
+                        <p>
+                            Digital dictionary for my endangered mother tongue — preserving language through community contributions.
+                            Fuzzy search, word submission, and fast SSR.
+                        </p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-primary">🌐 Live demo (Vercel)</a>
+                            <!-- If you make the repo public, link it here; otherwise remove button -->
+                            <a href="#" class="btn btn-outline">Repo</a>
+                        </div>
+                    </div>
+                </div>
 
-					<div class="meta">
-						<span>Based in Mannheim, Germany</span>
-						<span class="sep" aria-hidden="true">•</span>
-						<span>Available immediately (Chancenkarte, ZAB-recognized)</span>
-					</div>
+                <!-- Quizzcal -->
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200/2563eb/ffffff?text=Quizzcal+Screenshot" 
+                         alt="Quizzcal quiz app interface">
+                    <div class="card-content">
+                        <h3>Quizzcal</h3>
+                        <div class="tech-stack">
+                            <span>React</span><span>TypeScript</span><span>REST API</span>
+                        </div>
+                        <p>
+                            Interactive quiz app with real-time scoring and dynamic question modules.
+                            Clean component architecture and state management with React Hooks.
+                        </p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-primary">🌐 Live demo</a>
+                            <a href="#" class="btn btn-outline">Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-					<div class="links">
-						<a href="mailto:daniel1kipkosgei@gmail.com">
-							daniel1kipkosgei@gmail.com
-						</a>
-						<span class="sep" aria-hidden="true">•</span>
-						<a href="https://github.com/Chirchir-Dan"
-						target="_blank" rel="noopener">
-							GitHub
-						</a>
-						<span class="sep" aria-hidden="true">•</span>
-						<a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/"
-						target="_blank" rel="noopener">
-							LinkedIn
-						</a>
-					</div>
-				</div>
+        <!-- Skills -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Mobile Frontend</h4>
+                    <ul>
+                        <li>React Native (Expo)</li>
+                        <li>TypeScript</li>
+                        <li>React Navigation</li>
+                        <li>expo-sqlite</li>
+                        <li>chart-kit</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Web Frontend</h4>
+                    <ul>
+                        <li>Next.js</li>
+                        <li>React</li>
+                        <li>Tailwind CSS</li>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Backend & DB</h4>
+                    <ul>
+                        <li>Python (Flask, Django)</li>
+                        <li>SQL (SQLite, Postgres)</li>
+                        <li>REST APIs</li>
+                        <li>Go basics</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Testing / QA</h4>
+                    <ul>
+                        <li>Manual testing</li>
+                        <li>Jest</li>
+                        <li>API testing</li>
+                        <li>Bug tracking</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>DevOps & Tools</h4>
+                    <ul>
+                        <li>Git/GitHub</li>
+                        <li>EAS Build</li>
+                        <li>Google Play Console</li>
+                        <li>Linux, SSH</li>
+                        <li>Docker basics</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <ul>
+                        <li>TypeScript</li>
+                        <li>Python</li>
+                        <li>Go</li>
+                        <li>German B2</li>
+                        <li>English C1</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-				<aside class="hero__side" aria-label="Profile snapshot">
-					<img class="photo"
-					src="assets/images/bewerbungsfoto.jpg"
-					alt="Portrait of Daniel Kipkosgei">
+        <!-- CV Download -->
+        <section id="cv">
+            <h2>Curriculum Vitae</h2>
+            <div class="cv-section">
+                <p style="font-size: 1.1rem; margin-bottom: 10px;">
+                    Full CV with detailed project descriptions, work authorization, and education.
+                </p>
+                <a href="Lebenslauf_Daniel.pdf" class="btn btn-primary" download>
+                    📄 Download CV (PDF)
+                </a>
+                <p style="margin-top: 8px; font-size:0.9rem;">
+                    (If the download doesn't start, right-click and choose "Save link as…")
+                </p>
+            </div>
+        </section>
 
-					<ul class="mini">
-						<li>React Native (Expo), TypeScript</li>
-						<li>Next.js, React, Tailwind CSS</li>
-						<li>expo-sqlite, chart-kit, date-fns</li>
-						<li>QA: test cases, bug reports, API testing</li>
-						<li>Git/GitHub, Linux, EAS Build</li>
-					</ul>
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p style="font-size: 1.05rem;">
+                📧 <a href="mailto:daniel1kipkosgei@gmail.com">daniel1kipkosgei@gmail.com</a> &nbsp;|&nbsp;
+                📞 <a href="tel:+4915757183472">+49 157 5718 3472</a> &nbsp;|&nbsp;
+                🐙 <a href="https://github.com/Chirchir-Dan" target="_blank">Chirchir-Dan</a> &nbsp;|&nbsp;
+                💼 <a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" target="_blank">LinkedIn</a>
+            </p>
+        </section>
+    </main>
 
-					<div class="side-cta">
-						<a class="btn small primary" href="#contact">Email me</a>
-						<a class="btn small" href="#projects">See work</a>
-					</div>
-				</aside>
-			</div>
-		</div>
-	</header>
-
-	<main class="wrap">
-		<section id="about" class="sec">
-			<h2>About</h2>
-			<p>
-				I'm a frontend developer with a BSc in Mathematics and Computer Science (ZAB-recognized) and a QA background that shapes how I build software — thinking about edge cases, user experience, and validation from the very first line of code.
-			</p>
-			<p>
-				I build mobile apps with React Native and Expo, and web apps with Next.js, TypeScript, and Tailwind CSS. I'm comfortable with local databases (SQLite), charting libraries, and generating/sharing PDFs directly from the app — the full cycle from idea to published app.
-			</p>
-			<p class="muted">
-				Currently in Mannheim, Germany · Valid Chancenkarte · ZAB recognition as Software Developer · German B2, English C1
-			</p>
-		</section>
-
-		<section id="projects" class="sec">
-			<h2>Projects</h2>
-
-			<div class="grid">
-				<article class="card">
-					<h3>Chaifarm</h3>
-					<p class="muted">
-						Mobile farm management app for tea farmers — track production, expenses, and employees with analytics dashboards.
-					</p>
-					<ul class="bullets">
-						<li>React Native (Expo) + TypeScript</li>
-						<li>Offline-first with expo-sqlite and Repository pattern</li>
-						<li>PDF reports (expo-print) & sharing (expo-sharing)</li>
-						<li>Line and pie charts (react-native-chart-kit)</li>
-						<li>Live on Google Play (closed testing)</li>
-					</ul>
-					<p class="muted small">
-						🔒 Private repository. <strong>Live demo, video walkthrough, or code review available in an interview.</strong>
-					</p>
-					<div class="actions">
-						<!-- Replace # with actual Google Play or Loom video link when ready -->
-						<a class="btn small primary"
-						href="#"
-						target="_blank" rel="noopener">
-							▶ Watch demo (Loom)
-						</a>
-					</div>
-				</article>
-
-				<article class="card">
-					<h3>Kutiit</h3>
-					<p class="muted">
-						Digital dictionary for my endangered mother tongue — preserving a language through community contributions.
-					</p>
-					<ul class="bullets">
-						<li>Next.js + TypeScript + Tailwind CSS</li>
-						<li>Fuzzy search and word contribution feature</li>
-						<li>SSR and API routes for performance and SEO</li>
-					</ul>
-					<div class="actions">
-						<!-- Replace # with Vercel deployment when deployed -->
-						<a class="btn small primary"
-						href="#"
-						target="_blank" rel="noopener">
-							Live demo (Vercel)
-						</a>
-						<a class="btn small"
-						href="https://github.com/Chirchir-Dan/kutiit"
-						target="_blank" rel="noopener">
-							Repo
-						</a>
-					</div>
-				</article>
-
-				<article class="card">
-					<h3>Quizzcal</h3>
-					<p class="muted">
-						Interactive quiz app with real-time scoring, built with React and TypeScript.
-					</p>
-					<ul class="bullets">
-						<li>React + TypeScript + REST API</li>
-						<li>React Hooks for state management</li>
-						<li>Component-based architecture for question modules and scoreboard</li>
-					</ul>
-					<div class="actions">
-						<!-- Replace # with actual links when ready -->
-						<a class="btn small primary"
-						href="#"
-						target="_blank" rel="noopener">
-							Live demo
-						</a>
-					</div>
-				</article>
-			</div>
-		</section>
-
-		<section id="skills" class="sec">
-			<h2>Skills</h2>
-
-			<div class="skill-grid">
-				<div class="skill-card">
-					<h3>Frontend (Mobile)</h3>
-					<ul class="bullets">
-						<li>React Native, Expo</li>
-						<li>TypeScript</li>
-						<li>React Navigation, Vector Icons</li>
-						<li>expo-sqlite (local DB)</li>
-						<li>react-native-chart-kit</li>
-						<li>expo-print, expo-sharing</li>
-					</ul>
-				</div>
-
-				<div class="skill-card">
-					<h3>Frontend (Web)</h3>
-					<ul class="bullets">
-						<li>Next.js, React</li>
-						<li>TypeScript, JavaScript</li>
-						<li>Tailwind CSS, HTML/CSS</li>
-						<li>REST API integration</li>
-					</ul>
-				</div>
-
-				<div class="skill-card">
-					<h3>Backend & Database</h3>
-					<ul class="bullets">
-						<li>Python (Flask, Django)</li>
-						<li>SQL (SQLite, MySQL, PostgreSQL)</li>
-						<li>REST API design</li>
-						<li>Go basics</li>
-					</ul>
-				</div>
-
-				<div class="skill-card">
-					<h3>Testing / QA</h3>
-					<ul class="bullets">
-						<li>Manual testing (web & mobile)</li>
-						<li>Bug reports, test cases</li>
-						<li>API testing (Postman)</li>
-						<li>Jest (unit/integration tests)</li>
-					</ul>
-				</div>
-
-				<div class="skill-card">
-					<h3>DevOps & Tools</h3>
-					<ul class="bullets">
-						<li>Git/GitHub</li>
-						<li>EAS Build (cloud builds)</li>
-						<li>Google Play Console</li>
-						<li>Linux, SSH</li>
-						<li>Docker basics</li>
-					</ul>
-				</div>
-
-				<div class="skill-card">
-					<h3>Languages</h3>
-					<ul class="bullets">
-						<li>TypeScript, JavaScript</li>
-						<li>Python</li>
-						<li>Go</li>
-						<li>SQL</li>
-						<li>German B2 · English C1</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-		<section id="learning" class="sec">
-			<h2>Currently Learning</h2>
-			<ul class="bullets">
-				<li>Advanced Next.js patterns (App Router, server components)</li>
-				<li>Deeper TypeScript for large codebases</li>
-				<li>AI engineering fundamentals (Scrimba Fullstack Path)</li>
-				<li>Publishing Chaifarm to open testing and production on Google Play</li>
-			</ul>
-		</section>
-
-		<section id="cv" class="sec">
-			<h2>Curriculum Vitae</h2>
-			<p>
-				For a detailed CV with full work authorization details, project breakdowns, and my complete skill set:
-			</p>
-			<p>
-				<a class="btn primary" href="Lebenslauf_Daniel.pdf" target="_blank">
-					📄 Download CV (PDF)
-				</a>
-			</p>
-			<p class="muted small">
-				Includes: ZAB recognition confirmation, Chancenkarte status, full tech stack per project, and work experience.
-			</p>
-		</section>
-
-		<section id="contact" class="sec">
-			<h2>Contact</h2>
-			<ul class="bullets">
-				<li>
-					📧 Email:
-					<a href="mailto:daniel1kipkosgei@gmail.com">
-						daniel1kipkosgei@gmail.com
-					</a>
-				</li>
-				<li>
-					📞 Phone:
-					<a href="tel:+4915757183472">+49 157 5718 3472</a>
-				</li>
-				<li>
-					🐙 GitHub:
-					<a href="https://github.com/Chirchir-Dan"
-					target="_blank" rel="noopener">
-						Chirchir-Dan
-					</a>
-				</li>
-				<li>
-					💼 LinkedIn:
-					<a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/"
-					target="_blank" rel="noopener">
-						daniel-kipkosgei
-					</a>
-				</li>
-			</ul>
-		</section>
-
-		<footer class="foot">
-			<p>© 2025 Daniel Kipkosgei · <a href="#top">Top ↑</a></p>
-		</footer>
-	</main>
+    <footer>
+        <div class="container">
+            © 2025 Daniel Kipkosgei — Built with simple HTML & CSS. <a href="#top">Back to top ↑</a>
+        </div>
+    </footer>
 </body>
 </html>
