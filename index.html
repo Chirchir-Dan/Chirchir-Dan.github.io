@@ -3,53 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Daniel Kipkosgei — Frontend & Mobile Developer in Germany. React Native, Next.js, TypeScript." />
+    <meta name="description" content="Daniel Kipkosgei — Frontend & Mobile Developer. React Native, Next.js, TypeScript." />
     <title>Daniel Kipkosgei | Frontend & Mobile Developer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: #f9fafb;
-            color: #111827;
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        section {
-            padding: 80px 0;
-        }
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 28px;
+            background: #f8fafc;
             color: #0f172a;
-            position: relative;
-            display: inline-block;
+            line-height: 1.6;
         }
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 40px;
-            height: 3px;
-            background: #2563eb;
-            border-radius: 2px;
-        }
+        .container { max-width: 1200px; margin: auto; padding: 0 24px; }
+        section { padding: 80px 0; }
+        h2 { font-size: 2.2rem; margin-bottom: 28px; position: relative; display: inline-block; }
+        h2::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 40px; height: 3px; background: #2563eb; border-radius: 2px; }
 
         /* HERO */
         .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             padding: 80px 0 60px;
             position: relative;
@@ -58,298 +30,94 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(37,99,235,0.15) 0%, transparent 50%);
-            animation: morph 10s infinite alternate;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(37,99,235,0.15), transparent 50%);
+            animation: morph 12s infinite alternate;
         }
-        @keyframes morph {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(20px, -10px) scale(1.05); }
-        }
-        .hero-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-        .hero-left {
-            flex: 2;
-        }
-        .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 3.6rem);
-            line-height: 1.1;
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
-        .hero-title {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            margin-bottom: 20px;
-            min-height: 2.4em; /* prevent layout shift while typing */
-        }
-        .badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 24px 0;
-        }
-        .badge {
-            background: rgba(255,255,255,0.08);
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-        }
-        .hero-links {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+        @keyframes morph { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(20px,-10px) scale(1.05); } }
+        .hero-content { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; position: relative; z-index: 2; }
+        .hero-left { flex: 2; }
+        .hero h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.1; margin-bottom: 12px; font-weight: 800; }
+        .hero-title { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 20px; min-height: 2.4em; }
+        .badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .badge { background: rgba(255,255,255,0.08); padding: 6px 14px; border-radius: 30px; font-size: 0.9rem; backdrop-filter: blur(4px); }
+        .hero-links { display: flex; gap: 14px; flex-wrap: wrap; }
         .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: 0.2s;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-            font-size: 0.95rem;
+            display: inline-block; padding: 12px 24px; border-radius: 50px;
+            font-weight: 600; transition: 0.2s; text-align: center; cursor: pointer;
+            border: none; font-size: 0.95rem; text-decoration: none;
         }
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-        }
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            border: 2px solid rgba(255,255,255,0.35);
-            color: white;
-            background: transparent;
-        }
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.08);
-        }
-        .btn-ghost {
-            background: transparent;
-            color: #2563eb;
-            border: 2px solid #2563eb;
-        }
-        .btn-ghost:hover {
-            background: #2563eb;
-            color: white;
-        }
-        .hero-image img {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.2);
-            box-shadow: 0 0 30px rgba(37,99,235,0.2);
-        }
+        .btn-primary { background: #2563eb; color: white; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+        .btn-outline { border: 2px solid rgba(255,255,255,0.35); color: white; background: transparent; }
+        .btn-outline:hover { background: rgba(255,255,255,0.08); }
+        .btn-ghost { background: transparent; color: #2563eb; border: 2px solid #2563eb; }
+        .btn-ghost:hover { background: #2563eb; color: white; }
+        .hero-image img { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.2); }
 
-        /* Language switcher */
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-        .lang-switch button {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-        .lang-switch button.active {
-            background: #2563eb;
-            border-color: #2563eb;
-        }
+        .lang-switch { position: absolute; top: 20px; right: 24px; display: flex; gap: 8px; z-index: 10; }
+        .lang-switch button { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: 0.2s; }
+        .lang-switch button.active { background: #2563eb; border-color: #2563eb; }
 
-        /* Sections reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* SCROLL REVEAL */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* Cards */
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .card-content {
-            padding: 24px;
-        }
-        .featured {
-            border: 2px solid #2563eb;
-        }
-        .tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 16px 0;
-        }
-        .tech span {
-            background: #eff6ff;
-            color: #1d4ed8;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-        }
-        ul.clean {
-            list-style: none;
-            margin: 16px 0;
-        }
-        ul.clean li {
-            margin-bottom: 10px;
-            padding-left: 24px;
-            position: relative;
-        }
-        ul.clean li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #2563eb;
-            font-weight: bold;
-        }
+        /* CARDS */
+        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 24px; }
+        .tech { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0; }
+        .tech span { background: #eff6ff; color: #1d4ed8; padding: 4px 12px; border-radius: 30px; font-size: 0.8rem; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
 
-        /* Skills grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .skill-box {
-            background: white;
-            padding: 24px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-        }
-        .skill-box h4 {
-            margin-bottom: 12px;
-            color: #0f172a;
-        }
-        .skill-box ul {
-            list-style: none;
-        }
-        .skill-box li {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
+        /* CAROUSEL */
+        .carousel { position: relative; width: 100%; height: 250px; overflow: hidden; }
+        .carousel img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.4s ease; }
+        .carousel img.active { opacity: 1; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 1.5rem; padding: 8px 12px; cursor: pointer; border-radius: 50%; z-index: 5; }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
 
-        /* Certificates */
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .cert-card {
-            background: white;
-            padding: 24px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-        }
-        .cert-card h4 {
-            margin-bottom: 8px;
-        }
-        .cert-card p {
-            font-size: 0.9rem;
-            color: #4b5563;
-            margin-bottom: 12px;
-        }
-        .cert-card .btn-ghost {
-            font-size: 0.8rem;
-            padding: 8px 16px;
-        }
+        /* CERTIFICATES */
+        .certificates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .cert-card { background: white; padding: 20px; border-radius: 16px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+        .cert-card h4 { margin-bottom: 10px; font-size: 1rem; }
 
-        /* CTA */
-        .cta-box {
-            background: #eff6ff;
-            border-radius: 24px;
-            padding: 50px;
-            text-align: center;
-        }
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .skill-box { background: white; padding: 24px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+        .skill-box h4 { margin-bottom: 12px; }
+        .skill-box ul { list-style: none; padding: 0; }
+        .skill-box li { margin-bottom: 8px; }
 
-        footer {
-            background: #0f172a;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-            font-size: 0.9rem;
-        }
+        .cta-box { background: #eff6ff; border-radius: 24px; padding: 50px; text-align: center; margin-top: 40px; }
+
+        footer { background: #0f172a; color: #cbd5e1; text-align: center; padding: 30px 0; margin-top: 60px; }
 
         @media (max-width: 768px) {
-            .hero-content {
-                text-align: center;
-            }
-            .hero-left {
-                flex: auto;
-            }
-            .hero-links, .badges {
-                justify-content: center;
-            }
-            .lang-switch {
-                top: 10px;
-                right: 10px;
-            }
+            .hero-content { text-align: center; }
+            .hero-links, .badges { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+<div class="lang-switch">
+    <button id="lang-en" class="active">EN</button>
+    <button id="lang-de">DE</button>
+</div>
+
 <header class="hero">
-    <div class="lang-switch">
-        <button id="lang-en" class="active">EN</button>
-        <button id="lang-de">DE</button>
-    </div>
     <div class="container hero-content">
         <div class="hero-left">
             <h1>Daniel Kipkosgei</h1>
             <div class="hero-title" id="typed-title"></div>
             <div class="badges" id="badges-container"></div>
             <div class="hero-links">
-                <a href="mailto:daniel1kipkosgei@gmail.com" class="btn btn-primary" data-i18n="contact">Contact Me</a>
+                <a href="mailto:daniel1kipkosgei@gmail.com" class="btn btn-primary" data-i18n="contact">Contact</a>
                 <a href="https://github.com/Chirchir-Dan" class="btn btn-outline" target="_blank">GitHub</a>
                 <a href="https://www.linkedin.com/in/daniel-kipkosgei-2ab84117b/" class="btn btn-outline" target="_blank">LinkedIn</a>
                 <a href="#cv-download" class="btn btn-outline" data-i18n="cv">CV</a>
@@ -362,36 +130,29 @@
 </header>
 
 <main class="container">
-
     <!-- About -->
     <section class="reveal">
         <h2 data-i18n="about-heading">About Me</h2>
-        <div class="value-box card" style="padding: 32px; font-size: 1.05rem;" data-i18n="about-text">
-            I build reliable applications that solve practical problems — from an offline-first farm management app for tea farmers to a language preservation platform for my native community. With a BSc in Mathematics & Computer Science and a QA background, I focus on usability, resilience, and clean code.
+        <div class="card" style="padding:32px;font-size:1.05rem;" data-i18n="about-text">
+            I build practical, offline‑first applications — from a tea‑farm management app to a dictionary preserving my mother tongue. Mathematics & Computer Science degree, QA background, attention to detail.
         </div>
     </section>
 
-    <!-- Featured Project -->
+    <!-- Featured Project (Chaifarm) -->
     <section class="reveal">
         <h2 data-i18n="featured-heading">Featured Project</h2>
-        <div class="card featured">
-            <img src="assets/images/chaifarm.jpg" alt="Chaifarm">
+        <div class="card">
+            <div class="carousel" id="chaifarm-carousel"></div>
             <div class="card-content">
-                <h3>Chaifarm — Mobile Farm Management App</h3>
+                <h3>Chaifarm</h3>
                 <div class="tech">
                     <span>React Native</span><span>Expo</span><span>TypeScript</span>
                     <span>SQLite</span><span>PDF</span><span>Google Play</span>
                 </div>
-                <p data-i18n="chaifarm-desc">Offline-first mobile app for tea farmers: production tracking, employee management, PDF reports, and analytics.</p>
-                <ul class="clean">
-                    <li data-i18n="chaifarm-point1">📴 Fully offline with local database</li>
-                    <li data-i18n="chaifarm-point2">📊 Production, expenses, and employee tracking</li>
-                    <li data-i18n="chaifarm-point3">📄 Exportable PDF reports</li>
-                    <li data-i18n="chaifarm-point4">📱 On Google Play (closed testing)</li>
-                </ul>
+                <p data-i18n="chaifarm-desc">Offline farm management app for tea farmers – production, expenses, staff and PDF reports.</p>
                 <div class="hero-links" style="margin-top:18px">
-                    <a href="YOUR_LOOM_LINK" class="btn btn-primary">▶ Watch Demo</a>
-                    <a href="YOUR_PLAYSTORE_LINK" class="btn btn-outline">Google Play</a>
+                    <a href="https://drive.google.com/file/d/1KnCscZpttC55aaNnaFTDvnf_85lCq7U2/view?usp=drivesdk" class="btn btn-primary">▶ Watch Demo</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.chirchirdan.chaiFarm" class="btn btn-outline">Google Play</a>
                 </div>
             </div>
         </div>
@@ -402,45 +163,41 @@
         <h2 data-i18n="projects-heading">Projects</h2>
         <div class="project-grid">
             <div class="card">
-                <img src="assets/images/kutiit.jpg" alt="Kutiit">
+                <div class="carousel" id="kutiit-carousel"></div>
                 <div class="card-content">
                     <h3>Kutiit</h3>
-                    <div class="tech">
-                        <span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>Supabase</span><span>Vercel</span>
-                    </div>
-                    <p data-i18n="kutiit-desc">Digital dictionary for my endangered mother tongue. Searchable, with community word contributions.</p>
+                    <div class="tech"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>Supabase</span><span>Vercel</span></div>
+                    <p data-i18n="kutiit-desc">Digital dictionary for my endangered mother tongue – fuzzy search, community entries.</p>
                     <div class="hero-links" style="margin-top:18px">
                         <a href="https://github.com/Chirchir-Dan/kutiit2/" class="btn btn-primary">Repo</a>
-                        <a href="https://kitwek.vercel.app" class="btn btn-outline">Live Demo</a>
+                        <a href="https://kitwek.vercel.app" class="btn btn-outline">Live</a>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <img src="assets/images/quizzcal.jpg" alt="Quizzcal">
+                <div class="carousel" id="quizzcal-carousel"></div>
                 <div class="card-content">
                     <h3>Quizzcal</h3>
-                    <div class="tech">
-                        <span>React</span><span>TypeScript</span><span>REST API</span>
-                    </div>
-                    <p data-i18n="quizzcal-desc">Interactive quiz platform with real-time scoring and dynamic question modules.</p>
+                    <div class="tech"><span>React</span><span>TypeScript</span><span>REST API</span></div>
+                    <p data-i18n="quizzcal-desc">Interactive quiz platform with real‑time scoring and dynamic modules.</p>
                     <div class="hero-links" style="margin-top:18px">
                         <a href="https://github.com/Chirchir-Dan/quizzical" class="btn btn-primary">Repo</a>
-                        <a href="https://quizzcal.vercel.app/" class="btn btn-outline">Live Demo</a>
+                        <a href="https://quizzcal.vercel.app/" class="btn btn-outline">Live</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience -->
+    <!-- Professional Experience -->
     <section class="reveal">
-        <h2 data-i18n="experience-heading">Professional Experience</h2>
-        <div class="card" style="padding: 24px;">
+        <h2 data-i18n="experience-heading">Experience</h2>
+        <div class="card" style="padding:24px">
             <h3>Software QA Engineer – QATestLab</h3>
-            <ul class="clean">
-                <li data-i18n="exp-li1">Manual and API testing of web/mobile applications</li>
-                <li data-i18n="exp-li2">Bug reports, edge-case analysis, and regression checks</li>
-                <li data-i18n="exp-li3">Collaborated closely with developers to improve product quality</li>
+            <ul style="list-style:none;margin-top:12px;">
+                <li data-i18n="exp-li1" style="margin-bottom:8px;">▹ Manual testing</li>
+                <li data-i18n="exp-li2" style="margin-bottom:8px;">▹ Bug reports, edge cases, regression</li>
+                <li data-i18n="exp-li3">▹ Close collaboration with developers</li>
             </ul>
         </div>
     </section>
@@ -448,55 +205,17 @@
     <!-- Certificates -->
     <section class="reveal">
         <h2 data-i18n="certificates-heading">Certificates</h2>
-        <div class="certificates-grid">
-            <div class="cert-card">
-                <h4>Scrimba Fullstack Developer Path</h4>
-                <p>React, Next.js, AI Engineering (ongoing)</p>
-                <!-- Add link if available -->
-            </div>
-            <div class="cert-card">
-                <h4>ALX Africa Software Engineering</h4>
-                <p>Python, Flask, SQL, Linux, Git (2023–2025)</p>
-            </div>
-            <div class="cert-card">
-                <h4>Zone01 Kisumu Golang Bootcamp</h4>
-                <p>Algorithms, Go fundamentals (2025)</p>
-            </div>
-            <div class="cert-card">
-                <h4>ZAB Degree Recognition</h4>
-                <p>BSc Mathematics & Computer Science – full recognition</p>
-            </div>
-        </div>
+        <div class="certificates-grid" id="certificates-grid"></div>
     </section>
 
     <!-- Skills -->
     <section class="reveal">
-        <h2 data-i18n="skills-heading">Technical Skills</h2>
+        <h2 data-i18n="skills-heading">Skills</h2>
         <div class="skills-grid">
-            <div class="skill-box">
-                <h4>Frontend & Mobile</h4>
-                <ul>
-                    <li>React Native</li><li>Expo</li><li>Next.js</li><li>React</li><li>TypeScript</li>
-                </ul>
-            </div>
-            <div class="skill-box">
-                <h4>Databases & APIs</h4>
-                <ul>
-                    <li>SQLite</li><li>PostgreSQL</li><li>Supabase</li><li>REST APIs</li>
-                </ul>
-            </div>
-            <div class="skill-box">
-                <h4>Testing & Quality</h4>
-                <ul>
-                    <li>Manual Testing</li><li>Jest</li><li>API Testing</li><li>Bug Tracking</li>
-                </ul>
-            </div>
-            <div class="skill-box">
-                <h4>Tools & Deployment</h4>
-                <ul>
-                    <li>Git/GitHub</li><li>EAS Build</li><li>Google Play Console</li><li>Linux</li>
-                </ul>
-            </div>
+            <div class="skill-box"><h4>Frontend & Mobile</h4><ul><li>React Native</li><li>Expo</li><li>Next.js</li><li>React</li><li>TypeScript</li></ul></div>
+            <div class="skill-box"><h4>Databases</h4><ul><li>SQLite</li><li>PostgreSQL</li><li>Supabase</li><li>REST APIs</li></ul></div>
+            <div class="skill-box"><h4>Testing</h4><ul><li>Manual testing</li><li>Jest</li><li>unit testing</li></ul></div>
+            <div class="skill-box"><h4>Tools</h4><ul><li>Git/GitHub</li><li>EAS Build</li><li>Google Play</li><li>Linux</li></ul></div>
         </div>
     </section>
 
@@ -504,7 +223,7 @@
     <section id="cv-download" class="reveal">
         <h2 data-i18n="cv-heading">Download CV</h2>
         <div class="cta-box">
-            <p style="margin-bottom: 20px;" data-i18n="cv-text">Choose your language:</p>
+            <p style="margin-bottom:20px" data-i18n="cv-text">Choose your language:</p>
             <a href="Lebenslauf_Daniel_EN.pdf" class="btn btn-primary" download>📄 English CV (PDF)</a>
             <a href="Lebenslauf_Daniel_DE.pdf" class="btn btn-ghost" download>📄 German CV (PDF)</a>
         </div>
@@ -513,12 +232,11 @@
     <!-- CTA -->
     <section class="reveal">
         <div class="cta-box">
-            <h2 data-i18n="cta-heading">Let's Build Something Useful</h2>
-            <p style="margin: 20px 0;" data-i18n="cta-text">I'm actively seeking frontend and mobile development roles in Germany.</p>
+            <h2 data-i18n="cta-heading">Let's Build Together</h2>
+            <p style="margin:20px 0" data-i18n="cta-text">I'm looking for frontend / mobile developer roles in Germany.</p>
             <a href="mailto:daniel1kipkosgei@gmail.com" class="btn btn-primary" data-i18n="cta-button">Get In Touch</a>
         </div>
     </section>
-
 </main>
 
 <footer>
@@ -526,89 +244,94 @@
 </footer>
 
 <script>
-    // Language translations
+    // ==================== TRANSLATIONS ====================
     const translations = {
         en: {
-            contact: "Contact Me",
-            cv: "CV",
+            contact: "Contact", cv: "CV",
             "about-heading": "About Me",
-            "about-text": "I build reliable applications that solve practical problems — from an offline-first farm management app for tea farmers to a language preservation platform for my native community. With a BSc in Mathematics & Computer Science and a QA background, I focus on usability, resilience, and clean code.",
+            "about-text": "I build practical, offline‑first applications — from a tea‑farm management app to a dictionary preserving my mother tongue. Mathematics & Computer Science degree, QA background, attention to detail.",
             "featured-heading": "Featured Project",
-            "chaifarm-desc": "Offline-first mobile app for tea farmers: production tracking, employee management, PDF reports, and analytics.",
-            "chaifarm-point1": "📴 Fully offline with local database",
-            "chaifarm-point2": "📊 Production, expenses, and employee tracking",
-            "chaifarm-point3": "📄 Exportable PDF reports",
-            "chaifarm-point4": "📱 On Google Play (closed testing)",
+            "chaifarm-desc": "Offline farm management app for tea farmers – production, expenses, staff and PDF reports.",
             "projects-heading": "Projects",
-            "kutiit-desc": "Digital dictionary for my endangered mother tongue. Searchable, with community word contributions.",
-            "quizzcal-desc": "Interactive quiz platform with real-time scoring and dynamic question modules.",
-            "experience-heading": "Professional Experience",
-            "exp-li1": "Manual and API testing of web/mobile applications",
-            "exp-li2": "Bug reports, edge-case analysis, and regression checks",
-            "exp-li3": "Collaborated closely with developers to improve product quality",
-            "skills-heading": "Technical Skills",
+            "kutiit-desc": "Digital dictionary for my endangered mother tongue – fuzzy search, community entries.",
+            "quizzcal-desc": "Interactive quiz platform with real‑time scoring and dynamic modules.",
+            "experience-heading": "Experience",
+            "exp-li1": "▹ Manual testing",
+            "exp-li2": "▹ Bug reports, edge cases, regression",
+            "exp-li3": "▹ Close collaboration with developers",
             "certificates-heading": "Certificates",
+            "skills-heading": "Skills",
             "cv-heading": "Download CV",
             "cv-text": "Choose your language:",
-            "cta-heading": "Let's Build Something Useful",
-            "cta-text": "I'm actively seeking frontend and mobile development roles in Germany.",
+            "cta-heading": "Let's Build Together",
+            "cta-text": "I'm looking for frontend / mobile developer roles in Germany.",
             "cta-button": "Get In Touch",
-            "footer": "Designed & built by Daniel Kipkosgei"
+            "footer": "Designed & built by Daniel Kipkosgei",
+            // Certificate names
+            "cert-alx": "ALX Software Engineering",
+            "cert-degree": "Degree (BSc)",
+            "cert-hcia": "HCIA (Huawei)",
+            "cert-ielts": "IELTS",
+            "cert-it-support": "IT Support",
+            "cert-kcse": "KCSE",
+            "cert-oracle": "Oracle",
+            "cert-react": "React (Scrimba)",
+            "cert-zab": "ZAB Recognition"
         },
         de: {
-            contact: "Kontakt",
-            cv: "Lebenslauf",
+            contact: "Kontakt", cv: "Lebenslauf",
             "about-heading": "Über mich",
-            "about-text": "Ich entwickle zuverlässige Anwendungen, die praktische Probleme lösen — von einer offline-fähigen Farm-Management-App für Teebauern bis zu einer Plattform zum Erhalt meiner Muttersprache. Mit einem BSc in Mathematik & Informatik und einem QA-Hintergrund lege ich Wert auf Benutzerfreundlichkeit, Stabilität und sauberen Code.",
+            "about-text": "Ich entwickle praktische, offline‑fähige Anwendungen – von einer Teebauern‑Management‑App bis zu einem Wörterbuch für meine Muttersprache. Mathematik- und Informatikstudium, QA‑Hintergrund, Liebe zum Detail.",
             "featured-heading": "Hauptprojekt",
-            "chaifarm-desc": "Offline-fähige Mobile-App für Teebauern: Produktionsverfolgung, Mitarbeiterverwaltung, PDF-Berichte und Analysen.",
-            "chaifarm-point1": "📴 Vollständig offline mit lokaler Datenbank",
-            "chaifarm-point2": "📊 Erfassung von Produktion, Ausgaben und Mitarbeitern",
-            "chaifarm-point3": "📄 Exportierbare PDF-Berichte",
-            "chaifarm-point4": "📱 Bei Google Play (geschlossener Test)",
+            "chaifarm-desc": "Offline‑fähige App für Teebauern – Produktion, Ausgaben, Mitarbeiter, PDF‑Berichte.",
             "projects-heading": "Projekte",
-            "kutiit-desc": "Digitales Wörterbuch für meine bedrohte Muttersprache. Durchsuchbar, mit Community-Beiträgen.",
-            "quizzcal-desc": "Interaktive Quiz-Plattform mit Echtzeit-Bewertung und dynamischen Fragemodulen.",
-            "experience-heading": "Berufserfahrung",
-            "exp-li1": "Manuelles und API-Testen von Web-/Mobile-Anwendungen",
-            "exp-li2": "Fehlerberichte, Grenzfallanalyse und Regressionstests",
-            "exp-li3": "Enge Zusammenarbeit mit Entwicklern zur Qualitätsverbesserung",
-            "skills-heading": "Technische Fähigkeiten",
+            "kutiit-desc": "Digitales Wörterbuch für meine bedrohte Muttersprache – unscharfe Suche, Community‑Einträge.",
+            "quizzcal-desc": "Interaktive Quiz‑Plattform mit Echtzeit‑Bewertung und dynamischen Modulen.",
+            "experience-heading": "Erfahrung",
+            "exp-li1": "▹ Manuelles Testen",
+            "exp-li2": "▹ Fehlerberichte, Randfälle, Regression",
+            "exp-li3": "▹ Enge Zusammenarbeit mit Entwicklern",
             "certificates-heading": "Zertifikate",
+            "skills-heading": "Fähigkeiten",
             "cv-heading": "Lebenslauf herunterladen",
             "cv-text": "Sprache wählen:",
-            "cta-heading": "Lassen Sie uns Nützliches bauen",
-            "cta-text": "Ich suche aktiv nach Frontend- und Mobile-Entwicklungsstellen in Deutschland.",
+            "cta-heading": "Lassen Sie uns bauen",
+            "cta-text": "Ich suche Frontend‑ / Mobile‑Entwickler‑Rollen in Deutschland.",
             "cta-button": "Kontakt aufnehmen",
-            "footer": "Entworfen & gebaut von Daniel Kipkosgei"
+            "footer": "Entworfen & gebaut von Daniel Kipkosgei",
+            "cert-alx": "ALX Softwareentwicklung",
+            "cert-degree": "Abschluss (BSc)",
+            "cert-hcia": "HCIA (Huawei)",
+            "cert-ielts": "IELTS",
+            "cert-it-support": "IT‑Support",
+            "cert-kcse": "KCSE",
+            "cert-oracle": "Oracle",
+            "cert-react": "React (Scrimba)",
+            "cert-zab": "ZAB‑Anerkennung"
         }
     };
 
     let currentLang = 'en';
 
-    // Apply translations
     function switchLanguage(lang) {
         currentLang = lang;
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                el.textContent = translations[lang][key];
-            }
+            if (translations[lang][key]) el.textContent = translations[lang][key];
         });
-
-        // Update language buttons
-        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-        document.getElementById('lang-de').classList.toggle('active', lang === 'de');
-
-        // Restart typewriter with new language
-        const titleElement = document.getElementById('typed-title');
-        const newText = lang === 'en' 
-            ? 'Frontend & Mobile Developer — Building practical applications for real-world use'
-            : 'Frontend & Mobile Entwickler — Praktische Anwendungen für den Alltag';
-        typeWriter(titleElement, newText);
+        document.getElementById('lang-en').classList.toggle('active', lang==='en');
+        document.getElementById('lang-de').classList.toggle('active', lang==='de');
+        renderBadges();
+        renderCertificates();
+        // restart typewriter
+        const title = document.getElementById('typed-title');
+        const newText = lang==='en' 
+          ? 'Frontend & Mobile Developer — Building practical applications for real-world use'
+          : 'Frontend‑ & Mobile‑Entwickler — Praktische Anwendungen für den Alltag';
+        typeWriter(title, newText);
     }
 
-    // Typewriter effect
+    // ==================== TYPEWRITER ====================
     function typeWriter(element, text) {
         let i = 0;
         element.textContent = '';
@@ -622,42 +345,110 @@
         type();
     }
 
-    // Scroll reveal
-    const revealElements = document.querySelectorAll('.reveal');
+    // ==================== BADGES ====================
+    function renderBadges() {
+        const container = document.getElementById('badges-container');
+        const items = currentLang === 'en' ? [
+            "📍 Mannheim, Germany",
+            "🇩🇪 Chancenkarte (Work Authorization)",
+            "⚡ Available Immediately",
+            "🎓 ZAB Recognized Degree",
+            "🗣 German B2 / English C1"
+        ] : [
+            "📍 Mannheim, Deutschland",
+            "🇩🇪 Chancenkarte (Arbeitserlaubnis)",
+            "⚡ Sofort verfügbar",
+            "🎓 ZAB‑anerkannter Abschluss",
+            "🗣 Deutsch B2 / Englisch C1"
+        ];
+        container.innerHTML = items.map(t => `<div class="badge">${t}</div>`).join('');
+    }
+
+    // ==================== CERTIFICATES (real PDFs) ====================
+    const certificateFiles = [
+        { file: "alx.pdf", key: "cert-alx" },
+        { file: "degree.pdf", key: "cert-degree" },
+        { file: "hcia.pdf", key: "cert-hcia" },
+        { file: "ielts.pdf", key: "cert-ielts" },
+        { file: "it support.pdf", key: "cert-it-support" },
+        { file: "kcse.pdf", key: "cert-kcse" },
+        { file: "oracle.pdf", key: "cert-oracle" },
+        { file: "react.pdf", key: "cert-react" },
+        { file: "zab recognition.pdf", key: "cert-zab" }
+    ];
+
+    function renderCertificates() {
+        const grid = document.getElementById('certificates-grid');
+        grid.innerHTML = certificateFiles.map(cert => {
+            const displayName = translations[currentLang][cert.key] || cert.file;
+            return `
+                <div class="cert-card">
+                    <h4>${displayName}</h4>
+                    <a href="assets/certificates/${cert.file}" target="_blank" class="btn btn-ghost" style="padding:8px 16px;font-size:0.85rem;">📄 View</a>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // ==================== IMAGE CAROUSELS ====================
+    const projectImages = {
+        chaifarm: ["assets/images/chaiFarm/chaiFarm.png"],
+        kutiit: ["assets/images/Kutiit/kutiit.PNG", "assets/images/Kutiit/kutiit1.PNG", "assets/images/Kutiit/kutiit2.PNG"],
+        quizzcal: ["assets/images/quizcall/quiz1.PNG", "assets/images/quizcall/quiz2.PNG", "assets/images/quizcall/quiz3.PNG"]
+    };
+
+    function createCarousel(containerId, imageArray) {
+        const container = document.getElementById(containerId);
+        if (!container || imageArray.length === 0) return;
+        
+        // build HTML
+        container.innerHTML = imageArray.map((src, idx) => 
+            `<img src="${src}" alt="" class="${idx === 0 ? 'active' : ''}">`
+        ).join('');
+        
+        if (imageArray.length > 1) {
+            container.innerHTML += `
+                <button class="carousel-btn prev">❮</button>
+                <button class="carousel-btn next">❯</button>
+            `;
+            const images = container.querySelectorAll('img');
+            let current = 0;
+            function show(n) {
+                images[current].classList.remove('active');
+                current = (n + images.length) % images.length;
+                images[current].classList.add('active');
+            }
+            container.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+            container.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+        }
+    }
+
+    // ==================== SCROLL REVEAL ====================
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.15 });
-    revealElements.forEach(el => observer.observe(el));
 
-    // Init
-    document.addEventListener('DOMContentLoaded', () => {
-        // Start typewriter
-        const titleElement = document.getElementById('typed-title');
-        typeWriter(titleElement, translations.en['about-text'] ? 
-            'Frontend & Mobile Developer — Building practical applications for real-world use' 
-            : '');
-        // Badges (static translated via JS)
-        const badgesContainer = document.getElementById('badges-container');
-        const renderBadges = () => {
-            badgesContainer.innerHTML = [
-                '📍 ' + (currentLang === 'en' ? 'Mannheim, Germany' : 'Mannheim, Deutschland'),
-                '🇩🇪 ' + (currentLang === 'en' ? 'Work Authorization (Chancenkarte)' : 'Arbeitserlaubnis (Chancenkarte)'),
-                '⚡ ' + (currentLang === 'en' ? 'Available Immediately' : 'Sofort verfügbar'),
-                '🎓 ' + (currentLang === 'en' ? 'ZAB Recognized Degree' : 'ZAB-anerkannter Abschluss'),
-                '🗣 ' + (currentLang === 'en' ? 'German B2 / English C1' : 'Deutsch B2 / Englisch C1')
-            ].map(text => `<div class="badge">${text}</div>`).join('');
-        };
+    // ==================== INIT ====================
+    window.addEventListener('DOMContentLoaded', () => {
         renderBadges();
-
-        // Language switch buttons
+        renderCertificates();
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // init carousels
+        createCarousel('chaifarm-carousel', projectImages.chaifarm);
+        createCarousel('kutiit-carousel', projectImages.kutiit);
+        createCarousel('quizzcal-carousel', projectImages.quizzcal);
+        
+        // start typewriter
+        const titleEl = document.getElementById('typed-title');
+        typeWriter(titleEl, 'Frontend & Mobile Developer — Building practical applications for real-world use');
+        
+        // language switch listeners
         document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
         document.getElementById('lang-de').addEventListener('click', () => switchLanguage('de'));
     });
 </script>
-
 </body>
 </html>
