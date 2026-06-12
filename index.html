@@ -479,24 +479,41 @@
                 current = (n + images.length) % images.length;
                 images[current].classList.add('active');
             }
-            container.querySelector('.prev').addEventListener('click', e => {
-                e.stopPropagation();
-                show(current - 1);
+
+            // manual buttons
+            if (imageArray.length > 1) {
+                container.innerHTML += `
+                    <button class="carousel-btn prev">❮</button>
+                    <button class="carousel-btn next">❯</button>
+                `;
+                
+                container.querySelector('.prev').addEventListener('click', e => {
+                    e.stopPropagation();
+                    show(current - 1);
+                });
+                container.querySelector('.next').addEventListener('click', e => {
+                    e.stopPropagation();
+                    show(current + 1);
+                });
+            }
+            // auto-rotate every 4 seconds
+            let autoRotate = setInterval(() => show(current + 1), 4000);
+
+            // pause on hover
+            container.addEventListener('mouseenter', () => clearInterval(autoRotate));
+            container.addEventListener('mouseleave', () => {
+                autoRotate = setInterval(() => show(current + 1), 4000);
             });
-            container.querySelector('.next').addEventListener('click', e => {
-                e.stopPropagation();
-                show(current + 1);
+
+            // Lightbox on click
+            container.addEventListener('click', function(e) {
+                const activeImg = container.querySelector('img.active');
+                if (activeImg && e.target.tagName !== 'BUTTON') {
+                    document.getElementById('lightbox-img').src = activeImg.getAttribute('data-full') || activeImg.src;
+                    document.getElementById('lightbox').classList.add('active');
+                }
             });
         }
-
-        // Lightbox on click
-        container.addEventListener('click', function(e) {
-            const activeImg = container.querySelector('img.active');
-            if (activeImg && e.target.tagName !== 'BUTTON') {
-                document.getElementById('lightbox-img').src = activeImg.getAttribute('data-full') || activeImg.src;
-                document.getElementById('lightbox').classList.add('active');
-            }
-        });
     }
 
     // ==================== SCROLL REVEAL ====================
